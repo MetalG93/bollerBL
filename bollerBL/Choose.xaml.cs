@@ -10,33 +10,41 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace bollerBL
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for Choose.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class Choose : Window
     {
-        public MainWindow()
+        public Choose()
         {
             InitializeComponent();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void mniLogoff_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("Most itt majd történni fog valami");
+            Login li = new Login();
+            li.Show();
+            this.Close();
         }
 
-        private bool login()
+        private void Button_Click(object sender, RoutedEventArgs e)
         {
-            bool retVal = true;
+            Timeline tl = new Timeline();
+            tl.Show();
+        }
 
+        private void mniNewTeam(object sender, RoutedEventArgs e)
+        {
 
+        }
 
-            return retVal;
+        private void mniEditTeam(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

@@ -1,0 +1,71 @@
+﻿<Window x:Class="bollerBL.NewTeam"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:bollerBL"
+        mc:Ignorable="d"
+        Title="Új csapat" Height="450" Width="800" SizeChanged="Window_SizeChanged">
+    <Grid>
+        <Grid.Resources>
+            
+            <Style TargetType="Label">
+                <Setter Property="HorizontalAlignment" Value="Left"></Setter>
+                <Setter Property="HorizontalContentAlignment" Value="Right"></Setter>
+                <Setter Property="Width" Value="150"></Setter>
+                <Setter Property="Height" Value="25"></Setter>
+                <Setter Property="Margin" Value="10,0,0,0"></Setter>
+            </Style>
+
+            <Style TargetType="TextBox">
+                <Setter Property="HorizontalAlignment" Value="Left"></Setter>
+                <Setter Property="Width" Value="150"></Setter>
+                <Setter Property="Height" Value="25"></Setter>
+                <Setter Property="Margin" Value="170,0,0,0"></Setter>
+            </Style>
+
+        </Grid.Resources>
+        <StackPanel Name="sPanel">
+            <Grid Height="35">
+                <Label Name="lblTeamName" Content="Csapat neve:"></Label>
+                <TextBox Name="txtTemNAme" ></TextBox>
+            </Grid>
+
+            <Grid Height="35">
+                <Label Name="lblLeaderName" Content="Csapatvezető neve:" ></Label>
+                <TextBox Name="txtLeaderName" ></TextBox>
+            </Grid>
+
+            <Grid Height="35">
+                <Label Name="lblPhoneNumber" Content="Csapatvezető telefonszáma:" ></Label>
+                <TextBox Name="txtPhoneNumber" ></TextBox>
+            </Grid>
+
+            <Grid Height="35">
+                <Label Name="lblEmail" Content="Csapatvezető e-mail címe:" ></Label>
+                <TextBox Name="txtEmail" ></TextBox>
+            </Grid>
+
+            <Grid Height="35">
+                <Label Name="lblAddress" Content="Csapatvezető postacíme:" ></Label>
+                <TextBox Name="txtAddress" ></TextBox>
+            </Grid>
+
+            <Grid Height="35">
+                <Label Name="lblNumber" Content="Csapat létszáma:" ></Label>
+                <TextBox Name="txtNumber" ></TextBox>
+            </Grid>
+
+            <Grid Height="35">
+                <Label Name="lblPaid" Content="Nevezési díj befizetve:" ></Label>
+                <CheckBox Name="chxPaid" Margin="170,0,0,0" Height="25"></CheckBox>
+            </Grid>
+
+            <Grid Height="35">
+                <Button Name="btnOk" Margin="65,10,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="200" Height="25">
+                    <TextBlock Text="Csapat regisztrálása" TextWrapping="Wrap"></TextBlock>
+                </Button>
+            </Grid>
+        </StackPanel>
+    </Grid>
+</Window>

@@ -2,8 +2,15 @@
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:bollerBL"
-             StartupUri="MainWindow.xaml">
+             StartupUri="NewTeam.xaml">
     <Application.Resources>
-         
+        <Style x:Name="windows" TargetType="Window">
+            <Setter Property="Background" Value="#c8c8c8"></Setter>
+            <Setter Property="Icon" Value="ikon.png"></Setter>
+        </Style>
+
+        <Style TargetType="{x:Type local:Login}" BasedOn="{StaticResource {x:Type Window}}"></Style>
+        <Style TargetType="{x:Type local:Choose}" BasedOn="{StaticResource {x:Type Window}}"></Style>
+        <Style TargetType="{x:Type local:Timeline}" BasedOn="{StaticResource {x:Type Window}}"></Style>
     </Application.Resources>
 </Application>

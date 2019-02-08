@@ -1,0 +1,30 @@
+﻿<Window x:Class="bollerBL.Login"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:bollerBL"
+        mc:Ignorable="d"
+        Title="Bejelentkezés" Height="250" Width="400"  SizeChanged="Window_SizeChanged">
+    <Grid>
+        <Grid.Resources>
+            <Style TargetType="Label">
+                <Setter Property="HorizontalAlignment" Value="Left"></Setter>
+                <Setter Property="VerticalAlignment" Value="Top"></Setter>
+                <Setter Property="Width" Value="100"></Setter>
+                <Setter Property="HorizontalContentAlignment" Value="Center"></Setter>
+            </Style>
+        </Grid.Resources>
+
+        <Label Name="lblUser" Margin="10,10,0,0" Content="Felhasználónév:"></Label>
+        <ComboBox Name="cmbUser" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="120,10,0,0" Width="100">
+            
+        </ComboBox>
+
+        <Label Name="lblPass" Margin="10,50,0,0" Content="Jelszó:"></Label>
+        <PasswordBox Name="pswPass" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="120,50,0,0" Width="100" KeyDown="PswPass_KeyDown"></PasswordBox>
+
+        <Button Name="btnLogin" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="75,90,0,0" Width="100" Height="25" Content="Bejelentkezés" Click="btnLogin_Click"></Button>
+
+    </Grid>
+</Window>
