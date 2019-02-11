@@ -67,6 +67,9 @@
     </Compile>
     <Compile Include="Guest.cs" />
     <Compile Include="Misc.cs" />
+    <Compile Include="NewArtist.xaml.cs">
+      <DependentUpon>NewArtist.xaml</DependentUpon>
+    </Compile>
     <Compile Include="NewTeam.xaml.cs">
       <DependentUpon>NewTeam.xaml</DependentUpon>
     </Compile>
@@ -97,6 +100,10 @@
     <Compile Include="Login.xaml.cs">
       <DependentUpon>Login.xaml</DependentUpon>
     </Compile>
+    <Page Include="NewArtist.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="NewTeam.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.IO;
 using fastJSON;
+using System.Collections.ObjectModel;
 
 namespace bollerBL
 {
@@ -13,7 +14,7 @@ namespace bollerBL
     {
         public static List<User> users = new List<User>();
         public static List<Artist> artists = new List<Artist>();
-        public static List<Team> teams = new List<Team>();
+        public static ObservableCollection<Team> teams = new ObservableCollection<Team>();
 
         public static void loadUsers()
         {
@@ -54,7 +55,7 @@ namespace bollerBL
             while (!sr.EndOfStream)
             {
                 string[] datas = sr.ReadLine().Split(';');
-                teams.Add(new Team(datas[0], datas[1], datas[2], datas[3], datas[4], int.Parse(datas[5]), bool.Parse(datas[6]), int.Parse(datas[7])));
+                teams.Add(new Team(int.Parse(datas[0]), datas[1], datas[2], datas[3], datas[4], datas[5], int.Parse(datas[6]), bool.Parse(datas[7])));
             }
 
             sr.Close();

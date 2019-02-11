@@ -31,7 +31,7 @@ namespace bollerBL
             Index = max + 1;
         }
 
-        public Team(string _name, string _leader, string _phone, string _email, string _address, int _num, bool _paid, int _index)
+        public Team(int _index, string _name, string _leader, string _phone, string _email, string _address, int _num, bool _paid)
         {
             Name = _name;
             Leader = _leader;

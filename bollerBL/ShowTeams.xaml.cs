@@ -22,7 +22,7 @@ namespace bollerBL
         public ShowTeams()
         {
             InitializeComponent();
-            datagrid.ItemsSource = Misc.teams;
+            //datagrid.ItemsSource = Misc.teams;
             Misc.loadTeams();
             colWidth();
         }
@@ -39,9 +39,14 @@ namespace bollerBL
 
         private void Datagrid_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
-            Team team = (Team)e.Source;
-            EditTeam et = new EditTeam(team.Index);
+            
+            EditTeam et = new EditTeam(1);
             et.Show();
+        }
+
+        private void ShowTeams_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            Misc.saveTeams();
         }
     }
 }

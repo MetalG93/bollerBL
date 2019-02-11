@@ -5,17 +5,17 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:bollerBL"
         mc:Ignorable="d"
-        Title="ShowTeams" Height="450" Width="856.723" Name="showTeams" SizeChanged="ShowTeams_SizeChanged">
+        Title="ShowTeams" Height="450" Width="856.723" Name="showTeams" SizeChanged="ShowTeams_SizeChanged" Closing="ShowTeams_Closing">
     <Grid>
-        <DataGrid Name="datagrid" HorizontalAlignment="Stretch" MouseDoubleClick="Datagrid_MouseDoubleClick" >            
+        <DataGrid Name="datagrid" HorizontalAlignment="Stretch" AutoGenerateColumns="False" ItemsSource="{Binding Source={x:Static local:Misc.teams}}" ColumnWidth="*">            
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Csapat neve" Binding="{Binding Path=Name}" IsReadOnly="True"></DataGridTextColumn>
-                <DataGridTextColumn Header="Csapatvezető neve" Binding="{Binding Path=Leader}" IsReadOnly="True"></DataGridTextColumn>
-                <DataGridTextColumn Header="Csapatvezető telefonszáma" Binding="{Binding Path=Phone}" IsReadOnly="True"></DataGridTextColumn>
-                <DataGridTextColumn Header="Csapatvezető e-mail címe" Binding="{Binding Path=Email}" IsReadOnly="True"></DataGridTextColumn>
-                <DataGridTextColumn Header="Csapatvezető postacíme" Binding="{Binding Path=Address}" IsReadOnly="True"></DataGridTextColumn>
-                <DataGridTextColumn Header="Csapat létszáma" Binding="{Binding Path=Number}" IsReadOnly="True"></DataGridTextColumn>
-                <DataGridCheckBoxColumn Header="Nevezeési díj befizetve" Binding="{Binding Path=Paid}" IsReadOnly="True"></DataGridCheckBoxColumn>
+                <DataGridTextColumn Header="Csapat neve" Binding="{Binding Path=Name, Mode=TwoWay}" ></DataGridTextColumn>
+                <DataGridTextColumn Header="Csapatvezető neve" Binding="{Binding Path=Leader, Mode=TwoWay}" ></DataGridTextColumn>
+                <DataGridTextColumn Header="Csapatvezető telefonszáma" Binding="{Binding Path=Phone, Mode=TwoWay}" ></DataGridTextColumn>
+                <DataGridTextColumn Header="Csapatvezető e-mail címe" Binding="{Binding Path=Email, Mode=TwoWay}" ></DataGridTextColumn>
+                <DataGridTextColumn Header="Csapatvezető postacíme" Binding="{Binding Path=Address, Mode=TwoWay}" ></DataGridTextColumn>
+                <DataGridTextColumn Header="Csapat létszáma" Binding="{Binding Path=Number, Mode=TwoWay}" ></DataGridTextColumn>
+                <DataGridCheckBoxColumn Header="Nevezeési díj befizetve" Binding="{Binding Path=Paid, Mode=TwoWay}" ></DataGridCheckBoxColumn>
             </DataGrid.Columns>
         </DataGrid>
     </Grid>

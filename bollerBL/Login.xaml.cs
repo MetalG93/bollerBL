@@ -23,9 +23,10 @@ namespace bollerBL
         {
             SplashScreen sc = new SplashScreen("ikon.png");
             sc.Show(false);
-            sc.Close(new TimeSpan(0, 0, 3));
 
             Misc.loadUsers();
+
+            sc.Close(new TimeSpan(0, 0, 1));
             InitializeComponent();
             placeUI();
             cmbUser.ItemsSource = Misc.users;
