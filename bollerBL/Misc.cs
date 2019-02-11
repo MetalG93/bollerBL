@@ -7,6 +7,9 @@ using System.Windows;
 using System.IO;
 using fastJSON;
 using System.Collections.ObjectModel;
+using iTextSharp.text;
+using iTextSharp.text.pdf;
+
 
 namespace bollerBL
 {
@@ -15,6 +18,7 @@ namespace bollerBL
         public static List<User> users = new List<User>();
         public static List<Artist> artists = new List<Artist>();
         public static ObservableCollection<Team> teams = new ObservableCollection<Team>();
+        public static string PDFpath=@"D:\";
 
         public static void loadUsers()
         {
@@ -69,6 +73,6 @@ namespace bollerBL
                 sw.WriteLine(t.ToString());
 
             sw.Close();
-        }
+        }        
     }
 }

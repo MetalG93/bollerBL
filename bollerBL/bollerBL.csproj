@@ -38,6 +38,9 @@
     <Reference Include="fastJSON">
       <HintPath>..\..\..\..\OneDrive\Asztali gép\fastJSON\fastJSONcore\obj\Debug\net4.0\fastJSON.dll</HintPath>
     </Reference>
+    <Reference Include="itextsharp">
+      <HintPath>..\..\..\..\OneDrive\Asztali gép\itextsharp-develop\src\core\bin\Debug_woDrawing\itextsharp.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />

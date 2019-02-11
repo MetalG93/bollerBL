@@ -48,5 +48,11 @@ namespace bollerBL
         {
             Misc.saveTeams();
         }
+
+        private void btnEntryPermission_Click(object sender, RoutedEventArgs e)
+        {
+            Team team = (Team)datagrid.SelectedItem;
+            team.createEntryPermit();
+        }
     }
 }
