@@ -62,10 +62,16 @@
     <Compile Include="Choose.xaml.cs">
       <DependentUpon>Choose.xaml</DependentUpon>
     </Compile>
+    <Compile Include="EditTeams.xaml.cs">
+      <DependentUpon>EditTeams.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Guest.cs" />
     <Compile Include="Misc.cs" />
     <Compile Include="NewTeam.xaml.cs">
       <DependentUpon>NewTeam.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ShowTeams.xaml.cs">
+      <DependentUpon>ShowTeams.xaml</DependentUpon>
     </Compile>
     <Compile Include="Team.cs" />
     <Compile Include="Timeline.xaml.cs">
@@ -73,6 +79,10 @@
     </Compile>
     <Compile Include="User.cs" />
     <Page Include="Choose.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="EditTeams.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -88,6 +98,10 @@
       <DependentUpon>Login.xaml</DependentUpon>
     </Compile>
     <Page Include="NewTeam.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ShowTeams.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

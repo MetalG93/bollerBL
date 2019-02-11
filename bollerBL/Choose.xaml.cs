@@ -39,12 +39,14 @@ namespace bollerBL
 
         private void mniNewTeam(object sender, RoutedEventArgs e)
         {
-
+            NewTeam nt = new NewTeam();
+            nt.Show();
         }
 
         private void mniEditTeam(object sender, RoutedEventArgs e)
         {
-
+            ShowTeams st = new ShowTeams();
+            st.Show();
         }
     }
 }

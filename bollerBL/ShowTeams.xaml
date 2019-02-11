@@ -1,0 +1,22 @@
+﻿<Window x:Class="bollerBL.ShowTeams"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:bollerBL"
+        mc:Ignorable="d"
+        Title="ShowTeams" Height="450" Width="856.723" Name="showTeams" SizeChanged="ShowTeams_SizeChanged">
+    <Grid>
+        <DataGrid Name="datagrid" HorizontalAlignment="Stretch" MouseDoubleClick="Datagrid_MouseDoubleClick" >            
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Csapat neve" Binding="{Binding Path=Name}" IsReadOnly="True"></DataGridTextColumn>
+                <DataGridTextColumn Header="Csapatvezető neve" Binding="{Binding Path=Leader}" IsReadOnly="True"></DataGridTextColumn>
+                <DataGridTextColumn Header="Csapatvezető telefonszáma" Binding="{Binding Path=Phone}" IsReadOnly="True"></DataGridTextColumn>
+                <DataGridTextColumn Header="Csapatvezető e-mail címe" Binding="{Binding Path=Email}" IsReadOnly="True"></DataGridTextColumn>
+                <DataGridTextColumn Header="Csapatvezető postacíme" Binding="{Binding Path=Address}" IsReadOnly="True"></DataGridTextColumn>
+                <DataGridTextColumn Header="Csapat létszáma" Binding="{Binding Path=Number}" IsReadOnly="True"></DataGridTextColumn>
+                <DataGridCheckBoxColumn Header="Nevezeési díj befizetve" Binding="{Binding Path=Paid}" IsReadOnly="True"></DataGridCheckBoxColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Window>

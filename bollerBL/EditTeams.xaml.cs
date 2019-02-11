@@ -18,13 +18,29 @@ namespace bollerBL
     /// <summary>
     /// Interaction logic for NewTeam.xaml
     /// </summary>
-    public partial class NewTeam : Window
+    public partial class EditTeam : Window
     {
 
-        public NewTeam()
+        public EditTeam(int index)
         {
             InitializeComponent();
             placeUI();
+            fillDatas(index);
+        }
+
+        private void fillDatas(int index)
+        {
+            int i = 0;
+            while (i < Misc.teams.Count && Misc.teams[i].Index != index)
+                i++;
+
+            txtTemNAme.Text = Misc.teams[i].Name;
+            txtLeaderName.Text = Misc.teams[i].Leader;
+            txtPhoneNumber.Text = Misc.teams[i].Phone;
+            txtEmail.Text = Misc.teams[i].Email;
+            txtAddress.Text = Misc.teams[i].Address;
+            txtNumber.Text = Misc.teams[i].Number.ToString();
+            chxPaid.IsChecked = Misc.teams[i].Paid;
         }
 
         private void placeUI()
@@ -73,7 +89,7 @@ namespace bollerBL
             if (txtTemNAme.Text == "")
             {
                 ok = false;
-                message += "Nincs kitöltve a csapatnév"+Environment.NewLine;
+                message += "Nincs kitöltve a csapatnév" + Environment.NewLine;
             }
 
             if (txtLeaderName.Text == "")
