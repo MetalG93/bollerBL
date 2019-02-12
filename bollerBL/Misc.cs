@@ -59,7 +59,7 @@ namespace bollerBL
             while (!sr.EndOfStream)
             {
                 string[] datas = sr.ReadLine().Split(';');
-                teams.Add(new Team(int.Parse(datas[0]), datas[1], datas[2], datas[3], datas[4], datas[5], int.Parse(datas[6]), bool.Parse(datas[7])));
+                teams.Add(new Team(int.Parse(datas[0]), datas[1], datas[2], datas[3], datas[4], datas[5], int.Parse(datas[6]), bool.Parse(datas[7]), datas[9],bool.Parse(datas[8])));
             }
 
             sr.Close();

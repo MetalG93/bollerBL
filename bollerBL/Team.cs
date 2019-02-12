@@ -12,9 +12,9 @@ namespace bollerBL
 {
     class Team
     {
-        string name, leader, phone, email, address, plateNumber = "";
+        string name, leader, phone, email, address, plateNumber;
         int number, index;
-        bool paid;
+        bool paid, entryPermissionSent;
 
         public Team(string _name, string _leader, string _phone, string _email, string _address, int _num, bool _paid)
         {
@@ -33,6 +33,8 @@ namespace bollerBL
                     max = Index;
             }
             Index = max + 1;
+
+            entryPermissionSent = false;
         }
 
         public Team(int _index, string _name, string _leader, string _phone, string _email, string _address, int _num, bool _paid)
@@ -45,6 +47,7 @@ namespace bollerBL
             Number = _num;
             Paid = _paid;
             Index = _index;
+            entryPermissionSent = false;
         }
 
         public Team(int _index, string _name, string _leader, string _phone, string _email, string _address, int _num, bool _paid, string _plateNum)
@@ -58,6 +61,21 @@ namespace bollerBL
             Paid = _paid;
             Index = _index;
             PlateNumber = _plateNum;
+            entryPermissionSent = false;
+        }
+
+        public Team(int _index, string _name, string _leader, string _phone, string _email, string _address, int _num, bool _paid, string _plateNum, bool _entryPermission)
+        {
+            Name = _name;
+            Leader = _leader;
+            Phone = _phone;
+            Email = _email;
+            Address = _address;
+            Number = _num;
+            Paid = _paid;
+            Index = _index;
+            PlateNumber = _plateNum;
+            entryPermissionSent = _entryPermission;
         }
 
         public string Name { get => Name1; set => Name1 = value; }
@@ -78,37 +96,74 @@ namespace bollerBL
 
         public override string ToString()
         {
-            return string.Format("{0};{1};{2};{3};{4};{5};{6};{7}", index, Name1, Leader1, Phone1, Email1, Address1, Number1, paid);
+            return string.Format("{0};{1};{2};{3};{4};{5};{6};{7};{8};{9}", index, Name1, Leader1, Phone1, Email1, Address1, Number1, paid, entryPermissionSent, PlateNumber);
         }
 
         public void createEntryPermit()
         {
-            Document doc = new Document();
-            doc.SetPageSize(PageSize.A4.Rotate());
-            PdfWriter writer = PdfWriter.GetInstance(doc, new FileStream(string.Format("{0}\\{1}.pdf", Misc.PDFpath, PlateNumber), FileMode.Create));
-
             if (PlateNumber != "")
             {
-                try
+                if (paid)
                 {
-                    writer.Open();
-                    doc.Open();
+                    if (!entryPermissionSent)
+                    {
+                        try
+                        {
+                            Font yearFont = FontFactory.GetFont("Arial", 25);
+                            Font plateFont = FontFactory.GetFont("Arial", 125, Font.BOLD);
 
-                    PdfPTable icon = new PdfPTable(1);
-                    PdfPCell iconCell = new PdfPCell(Image.GetInstance("ikon.png"));
-                    iconCell.Border = PdfPCell.NO_BORDER;
-                    iconCell.HorizontalAlignment = PdfPCell.ALIGN_CENTER;
-                    icon.AddCell(iconCell);
-                    doc.Add(icon);
+                            Document doc = new Document();
+                            doc.SetPageSize(PageSize.A4.Rotate());
+                            string filename = string.Format(@"{0}\{1}_{2}.pdf", Misc.PDFpath, Name, PlateNumber);
+                            PdfWriter writer = PdfWriter.GetInstance(doc, new FileStream(filename, FileMode.Create));
+                            writer.Open();
+                            doc.Open();
 
-                    doc.Close();
-                    writer.Close();
-                    MessageBox.Show("PDF készítése sikeres!");
+                            PdfPTable icon = new PdfPTable(1);
+
+                            PdfPCell iconCell = new PdfPCell(Image.GetInstance("ikon.png"));
+                            iconCell.Border = PdfPCell.NO_BORDER;
+                            iconCell.HorizontalAlignment = PdfPCell.ALIGN_CENTER;
+
+                            icon.AddCell(iconCell);
+                            doc.Add(icon);
+
+                            PdfPTable yearTable = new PdfPTable(1);
+
+                            PdfPCell yerarNum = new PdfPCell(new Phrase(string.Format("BÖLLÉR BL {0}", DateTime.Today.Year), yearFont));
+                            yerarNum.Border = PdfPCell.NO_BORDER;
+                            yerarNum.HorizontalAlignment = PdfPCell.ALIGN_CENTER;
+
+                            yearTable.AddCell(yerarNum);
+                            doc.Add(yearTable);
+
+
+                            PdfPTable plateTable = new PdfPTable(1);
+                            plateTable.PaddingTop = PageSize.A4.Width / (float)1.5;
+                                                        
+                            PdfPCell plateNum = new PdfPCell(new Phrase(PlateNumber, plateFont));
+                            plateNum.Border = PdfPCell.NO_BORDER;
+                            plateNum.HorizontalAlignment = PdfPCell.ALIGN_CENTER;
+
+                            plateTable.AddCell(plateNum);
+                            doc.Add(plateTable);
+
+                            doc.Close();
+                            writer.Close();
+                            //MessageBox.Show("PDF készítése sikeres!");
+                            System.Diagnostics.Process.Start(filename);
+                            entryPermissionSent = true;
+                        }
+                        catch (FieldAccessException)
+                        {
+                            MessageBox.Show("");
+                        }
+                    }
+                    else
+                        MessageBox.Show("Már el lett küldve a behajtási engedély!");
                 }
-                catch (FieldAccessException)
-                {
-                    MessageBox.Show("");
-                }
+                else
+                    MessageBox.Show("Nincs befizetve a nevezési díj!");
             }
             else
                 MessageBox.Show("Nincs megadva rendszám!");
