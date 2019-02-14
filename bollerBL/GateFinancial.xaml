@@ -1,0 +1,56 @@
+﻿<Window x:Class="bollerBL.GateFinancial"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:bollerBL"
+        mc:Ignorable="d"
+        Title="GateFinancial" Height="450" Width="800">
+    <Window.Resources>
+        <Style TargetType="Label">
+            <Setter Property="VerticalAlignment" Value="Top"></Setter>
+            <Setter Property="HorizontalAlignment" Value="Left"></Setter>
+            <Setter Property="HorizontalContentAlignment" Value="Right"></Setter>
+            <Setter Property="Width" Value="100"></Setter>
+            <Setter Property="Height" Value="25"></Setter>
+        </Style>
+
+        <Style TargetType="ComboBox">
+            <Setter Property="VerticalAlignment" Value="Top"></Setter>
+            <Setter Property="HorizontalAlignment" Value="Left"></Setter>
+            <Setter Property="Width" Value="100"></Setter>
+            <Setter Property="Height" Value="25"></Setter>
+        </Style>
+
+        <Style TargetType="TextBox">
+            <Setter Property="HorizontalAlignment" Value="Left"></Setter>
+            <Setter Property="VerticalAlignment" Value="Top"></Setter>
+            <Setter Property="Width" Value="100"></Setter>
+        </Style>
+    </Window.Resources>
+    <StackPanel Name="stackpanel">
+        <Grid>
+            <Label Margin="10,10,0,0" Content="Kapu"></Label>
+            <ComboBox Name="cbxGatge" Margin="120,10,0,0">
+                <ComboBoxItem Content="1. kapu"></ComboBoxItem>
+                <ComboBoxItem Content="2. kapu"></ComboBoxItem>
+                <ComboBoxItem Content="3. kapu"></ComboBoxItem>
+            </ComboBox>
+            <Label Margin="230,10,0,0" Content="Műszak"></Label>
+            <ComboBox Name="cbxShift" Margin="340,10,0,0">
+                <ComboBoxItem Content="6:00-10:00"></ComboBoxItem>
+                <ComboBoxItem Content="10:00-14:00"></ComboBoxItem>
+                <ComboBoxItem Content="14:00-18:00"></ComboBoxItem>
+                <ComboBoxItem Content="18:00-22:00"></ComboBoxItem>
+            </ComboBox>        
+        </Grid>
+        <Grid>
+            <Label Margin="10,10,0,0" Content="Doboz típusa"></Label>
+            <ComboBox Name="cbxBoxType" Margin="120,10,0,0">
+                <ComboBoxItem Content="Felnőtt"></ComboBoxItem>
+                <ComboBoxItem Content="Gyerek"></ComboBoxItem>
+            </ComboBox>
+            <Button Name="btnNewBox" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="285,10,0,0" Width="100" Height="25" Visibility="Visible" Content="Új doboz" Click="BtnNewBox_Click"></Button>
+        </Grid>
+    </StackPanel>
+</Window>

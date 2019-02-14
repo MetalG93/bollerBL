@@ -109,7 +109,7 @@ namespace bollerBL
                     {
                         try
                         {
-                            Font yearFont = FontFactory.GetFont("Arial", 25);
+                            Font yearFont = FontFactory.GetFont("Arial", 50);
                             Font plateFont = FontFactory.GetFont("Arial", 125, Font.BOLD);
 
                             Document doc = new Document();
@@ -130,12 +130,21 @@ namespace bollerBL
 
                             PdfPTable yearTable = new PdfPTable(1);
 
-                            PdfPCell yerarNum = new PdfPCell(new Phrase(string.Format("BÖLLÉR BL {0}", DateTime.Today.Year), yearFont));
+                            PdfPCell yerarNum = new PdfPCell(new Phrase(string.Format("BÖLLÉR BL {0}", (DateTime.Now.Month < 5) ? DateTime.Today.Year : DateTime.Now.Year + 1), yearFont));
                             yerarNum.Border = PdfPCell.NO_BORDER;
                             yerarNum.HorizontalAlignment = PdfPCell.ALIGN_CENTER;
 
                             yearTable.AddCell(yerarNum);
                             doc.Add(yearTable);
+
+
+                            PdfPTable emptyTable = new PdfPTable(1);
+
+                            PdfPCell emptyCell = new PdfPCell(new Phrase(" ", plateFont));
+                            emptyCell.Border = PdfPCell.NO_BORDER;
+
+                            emptyTable.AddCell(emptyCell);
+                            doc.Add(emptyTable);
 
 
                             PdfPTable plateTable = new PdfPTable(1);

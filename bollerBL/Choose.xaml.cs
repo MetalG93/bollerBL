@@ -33,8 +33,8 @@ namespace bollerBL
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            Timeline tl = new Timeline();
-            tl.Show();
+            GateFinancial gf = new GateFinancial();
+            gf.Show();
         }
 
         private void mniNewTeam(object sender, RoutedEventArgs e)

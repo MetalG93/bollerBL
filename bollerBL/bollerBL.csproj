@@ -68,6 +68,9 @@
     <Compile Include="EditTeams.xaml.cs">
       <DependentUpon>EditTeams.xaml</DependentUpon>
     </Compile>
+    <Compile Include="GateFinancial.xaml.cs">
+      <DependentUpon>GateFinancial.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Guest.cs" />
     <Compile Include="Misc.cs" />
     <Compile Include="NewArtist.xaml.cs">
@@ -89,6 +92,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="EditTeams.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="GateFinancial.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
