@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:bollerBL"
         mc:Ignorable="d"
-        Title="GateFinancial" Height="450" Width="800">
+        Title="GateFinancial" Height="500" Width="850">
     <Window.Resources>
         <Style TargetType="Label">
             <Setter Property="VerticalAlignment" Value="Top"></Setter>
@@ -28,29 +28,91 @@
             <Setter Property="Width" Value="100"></Setter>
         </Style>
     </Window.Resources>
-    <StackPanel Name="stackpanel">
-        <Grid>
-            <Label Margin="10,10,0,0" Content="Kapu"></Label>
-            <ComboBox Name="cbxGatge" Margin="120,10,0,0">
-                <ComboBoxItem Content="1. kapu"></ComboBoxItem>
-                <ComboBoxItem Content="2. kapu"></ComboBoxItem>
-                <ComboBoxItem Content="3. kapu"></ComboBoxItem>
-            </ComboBox>
-            <Label Margin="230,10,0,0" Content="Műszak"></Label>
-            <ComboBox Name="cbxShift" Margin="340,10,0,0">
-                <ComboBoxItem Content="6:00-10:00"></ComboBoxItem>
-                <ComboBoxItem Content="10:00-14:00"></ComboBoxItem>
-                <ComboBoxItem Content="14:00-18:00"></ComboBoxItem>
-                <ComboBoxItem Content="18:00-22:00"></ComboBoxItem>
-            </ComboBox>        
-        </Grid>
-        <Grid>
-            <Label Margin="10,10,0,0" Content="Doboz típusa"></Label>
-            <ComboBox Name="cbxBoxType" Margin="120,10,0,0">
-                <ComboBoxItem Content="Felnőtt"></ComboBoxItem>
-                <ComboBoxItem Content="Gyerek"></ComboBoxItem>
-            </ComboBox>
-            <Button Name="btnNewBox" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="285,10,0,0" Width="100" Height="25" Visibility="Visible" Content="Új doboz" Click="BtnNewBox_Click"></Button>
-        </Grid>
-    </StackPanel>
+    <Grid>
+        
+        <StackPanel Width="600" HorizontalAlignment="Left" Margin="0,0,0,0">
+            <Grid>
+                <Label Margin="10,10,0,0" Content="Kapu"></Label>
+                <ComboBox Name="cbxGatge" Margin="120,10,0,0">
+                    <ComboBoxItem Content="1. kapu"></ComboBoxItem>
+                    <ComboBoxItem Content="2. kapu"></ComboBoxItem>
+                    <ComboBoxItem Content="3. kapu"></ComboBoxItem>
+                </ComboBox>                
+                    
+                <Label Margin="230,10,0,0" Content="Műszak"></Label>
+                <ComboBox Name="cbxShift" Margin="340,10,0,0">
+                    <ComboBoxItem Content="6:00-10:00"></ComboBoxItem>
+                    <ComboBoxItem Content="10:00-14:00"></ComboBoxItem>
+                    <ComboBoxItem Content="14:00-18:00"></ComboBoxItem>
+                    <ComboBoxItem Content="18:00-22:00"></ComboBoxItem>
+                </ComboBox>        
+            </Grid>
+            <Grid>
+                <Label Margin="10,10,0,0" Content="Doboz típusa"></Label>
+                <ComboBox Name="cbxBoxType" Margin="120,10,0,0">
+                    <ComboBoxItem Content="Felnőtt"></ComboBoxItem>
+                    <ComboBoxItem Content="Gyerek"></ComboBoxItem>
+                </ComboBox>
+                <Button Name="btnNewBox" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="285,10,0,0" Width="100" Height="25" Visibility="Visible" Content="Új doboz" Click="BtnNewBox_Click"></Button>
+            </Grid>
+            <ScrollViewer VerticalScrollBarVisibility="Auto">
+                <StackPanel Name="ticketBoxes">
+                    
+                </StackPanel>
+            </ScrollViewer>
+        </StackPanel>
+        <StackPanel Name="sMoney" Width="250" HorizontalAlignment="Right" Margin="600,0,0,0">
+            <Grid>
+                <Button Name="btnCalc" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,10,10,0" Width="100" Height="25" Content="Számol" Click="BtnCalc_Click"></Button>
+            </Grid>
+            <Grid>
+                <Label Content="20000" Margin=" 10,10,0,0"></Label>
+                <TextBox Name="txt20000" Margin="120,10,0,0" Text="0" HorizontalContentAlignment="Right"></TextBox>
+            </Grid>
+            <Grid>
+                <Label Content="10000" Margin=" 10,10,0,0"></Label>
+                <TextBox Name="txt10000" Margin="120,10,0,0" Text="0" HorizontalContentAlignment="Right"></TextBox>
+            </Grid>
+            <Grid>
+                <Label Content="50000" Margin=" 10,10,0,0"></Label>
+                <TextBox Name="txt50000" Margin="120,10,0,0" Text="0" HorizontalContentAlignment="Right"></TextBox>
+            </Grid>
+            <Grid>
+                <Label Content="2000" Margin=" 10,10,0,0"></Label>
+                <TextBox Name="txt2000" Margin="120,10,0,0" Text="0" HorizontalContentAlignment="Right"></TextBox>
+            </Grid>
+            <Grid>
+                <Label Content="1000" Margin=" 10,10,0,0"></Label>
+                <TextBox Name="txt1000" Margin="120,10,0,0" Text="0" HorizontalContentAlignment="Right"></TextBox>
+            </Grid>
+            <Grid>
+                <Label Content="500" Margin=" 10,10,0,0"></Label>
+                <TextBox Name="txt500" Margin="120,10,0,0" Text="0" HorizontalContentAlignment="Right"></TextBox>
+            </Grid>
+            <Grid>
+                <Label Content="200" Margin=" 10,10,0,0"></Label>
+                <TextBox Name="txt200" Margin="120,10,0,0" Text="0" HorizontalContentAlignment="Right"></TextBox>
+            </Grid>
+            <Grid>
+                <Label Content="100" Margin=" 10,10,0,0"></Label>
+                <TextBox Name="txt100" Margin="120,10,0,0" Text="0" HorizontalContentAlignment="Right"></TextBox>
+            </Grid>
+            <Grid>
+                <Label Content="50" Margin=" 10,10,0,0"></Label>
+                <TextBox Name="txt50" Margin="120,10,0,0" Text="0" HorizontalContentAlignment="Right"></TextBox>
+            </Grid>
+            <Grid>
+                <Label Content="20" Margin=" 10,10,0,0"></Label>
+                <TextBox Name="txt20" Margin="120,10,0,0" Text="0" HorizontalContentAlignment="Right"></TextBox>
+            </Grid>
+            <Grid>
+                <Label Content="10" Margin=" 10,10,0,0"></Label>
+                <TextBox Name="txt10" Margin="120,10,0,0" Text="0" HorizontalContentAlignment="Right"></TextBox>
+            </Grid>
+            <Grid>
+                <Label Content="5" Margin=" 10,10,0,0"></Label>
+                <TextBox Name="txt5" Margin="120,10,0,0" Text="0" HorizontalContentAlignment="Right"></TextBox>
+            </Grid>
+        </StackPanel>
+    </Grid>
 </Window>

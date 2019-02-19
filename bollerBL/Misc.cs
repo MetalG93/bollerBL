@@ -20,6 +20,9 @@ namespace bollerBL
         public static ObservableCollection<Team> teams = new ObservableCollection<Team>();
         public static string PDFpath=@"D:\";
 
+        public static int adultPrice = 600;
+        public static int childrenPrice = 400;
+
         public static void loadUsers()
         {
             users.Clear();

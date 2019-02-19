@@ -32,11 +32,11 @@ namespace bollerBL
 
                 if (cbxBoxType.SelectedIndex == 0)
                 {
-                    gb.Header = "Felnőtt jegek";
+                    gb.Header = "Felnőtt jegyek";
                 }
                 else
                 {
-                    gb.Header = "Gerek jegek";
+                    gb.Header = "Gyerek jegyek";
                 }
 
                 Grid g = new Grid();
@@ -69,7 +69,7 @@ namespace bollerBL
                 g.Children.Add(txtEnd);
                 g.Children.Add(btnDelete);
                 gb.Content = g;
-                stackpanel.Children.Add(gb);
+                ticketBoxes.Children.Add(gb);
             }
             else
                 MessageBox.Show("Válassz ki doboz típust!");
@@ -77,7 +77,32 @@ namespace bollerBL
 
         private void btnDelete_Click(object sender, RoutedEventArgs e)
         {
+            ticketBoxes.Children.Remove((GroupBox)((Grid)(((Button)e.OriginalSource).Parent)).Parent);
+        }
 
+        private void BtnCalc_Click(object sender, RoutedEventArgs e)
+        {
+            decimal children = 0;
+            decimal adult = 0;
+
+            foreach (GroupBox gb in ticketBoxes.Children)
+            {
+                Grid g = (Grid)gb.Content;
+
+                    if (gb.Header.ToString() == "Felnőtt jegyek")
+                        adult += decimal.Parse(((TextBox)g.Children[3]).Text) - decimal.Parse(((TextBox)g.Children[1]).Text);
+                    else
+                        children += decimal.Parse(((TextBox)g.Children[3]).Text) - decimal.Parse(((TextBox)g.Children[1]).Text);
+            }
+
+            int money = 0;
+
+            for (int i = 1; i < sMoney.Children.Count; i++)
+            {
+                money += int.Parse(((TextBox)((Grid)sMoney.Children[i]).Children[1]).Text) * int.Parse(((Label)((Grid)sMoney.Children[i]).Children[0]).Content.ToString());
+            }
+
+            MessageBox.Show(string.Format("Összes pénz: {0}{1}Hozott pénz: {2}", children * Misc.childrenPrice + adult * Misc.adultPrice, Environment.NewLine, money));
         }
     }
 }
