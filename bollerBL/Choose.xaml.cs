@@ -48,5 +48,11 @@ namespace bollerBL
             ShowTeams st = new ShowTeams();
             st.Show();
         }
+
+        private void mniChangePrice(object sender, RoutedEventArgs e)
+        {
+            Prices p = new Prices();
+            p.Show();
+        }
     }
 }

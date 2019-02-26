@@ -12,14 +12,12 @@
             <Setter Property="HorizontalAlignment" Value="Left"></Setter>
             <Setter Property="HorizontalContentAlignment" Value="Right"></Setter>
             <Setter Property="Width" Value="100"></Setter>
-            <Setter Property="Height" Value="25"></Setter>
         </Style>
 
         <Style TargetType="ComboBox">
             <Setter Property="VerticalAlignment" Value="Top"></Setter>
             <Setter Property="HorizontalAlignment" Value="Left"></Setter>
             <Setter Property="Width" Value="100"></Setter>
-            <Setter Property="Height" Value="25"></Setter>
         </Style>
 
         <Style TargetType="TextBox">
@@ -33,20 +31,21 @@
         <StackPanel Width="600" HorizontalAlignment="Left" Margin="0,0,0,0">
             <Grid>
                 <Label Margin="10,10,0,0" Content="Kapu"></Label>
-                <ComboBox Name="cbxGatge" Margin="120,10,0,0">
-                    <ComboBoxItem Content="1. kapu"></ComboBoxItem>
-                    <ComboBoxItem Content="2. kapu"></ComboBoxItem>
-                    <ComboBoxItem Content="3. kapu"></ComboBoxItem>
-                </ComboBox>                
+                <ComboBox Name="cbxGatge" Margin="120,10,0,0" ></ComboBox>                
                     
                 <Label Margin="230,10,0,0" Content="Műszak"></Label>
-                <ComboBox Name="cbxShift" Margin="340,10,0,0">
-                    <ComboBoxItem Content="6:00-10:00"></ComboBoxItem>
-                    <ComboBoxItem Content="10:00-14:00"></ComboBoxItem>
-                    <ComboBoxItem Content="14:00-18:00"></ComboBoxItem>
-                    <ComboBoxItem Content="18:00-22:00"></ComboBoxItem>
-                </ComboBox>        
+                <ComboBox Name="cbxShift" Margin="340,10,0,0" ></ComboBox>        
             </Grid>
+            
+            <Grid>
+                <Label Content="Kóstolójegyek: " Margin="10,10,0,0"></Label>
+                <TextBox Name="txtTastingTicket" Margin="120,10,0,0" Width="50"></TextBox>
+                <Label Content="db" Margin="180,10,0,0" Width="30"></Label>
+                <Label Content="Tombola: " Margin="230,10,0,0"></Label>
+                <TextBox Name="txtRaffle" Margin="340,10,0,0" Width="50"></TextBox>
+                <Label Content="db" Margin="400,10,0,0" Width="30"></Label>
+            </Grid>
+            
             <Grid>
                 <Label Margin="10,10,0,0" Content="Doboz típusa"></Label>
                 <ComboBox Name="cbxBoxType" Margin="120,10,0,0">

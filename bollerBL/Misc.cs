@@ -18,10 +18,12 @@ namespace bollerBL
         public static List<User> users = new List<User>();
         public static List<Artist> artists = new List<Artist>();
         public static ObservableCollection<Team> teams = new ObservableCollection<Team>();
-        public static string PDFpath=@"D:\";
+        public static string PDFpath = @"D:\";
 
-        public static int adultPrice = 600;
-        public static int childrenPrice = 400;
+        public static int adultPrice;
+        public static int childrenPrice;
+        public static int taseTicketPrice;
+        public static int rafflePrice;
 
         public static void loadUsers()
         {
@@ -51,7 +53,7 @@ namespace bollerBL
 
         public static void placeWindow(Window window)
         {
-            
+
         }
 
         public static void loadTeams()
@@ -62,7 +64,7 @@ namespace bollerBL
             while (!sr.EndOfStream)
             {
                 string[] datas = sr.ReadLine().Split(';');
-                teams.Add(new Team(int.Parse(datas[0]), datas[1], datas[2], datas[3], datas[4], datas[5], int.Parse(datas[6]), bool.Parse(datas[7]), datas[9],bool.Parse(datas[8])));
+                teams.Add(new Team(int.Parse(datas[0]), datas[1], datas[2], datas[3], datas[4], datas[5], int.Parse(datas[6]), bool.Parse(datas[7]), datas[9], bool.Parse(datas[8]),int.Parse(datas[10])));
             }
 
             sr.Close();
@@ -76,6 +78,29 @@ namespace bollerBL
                 sw.WriteLine(t.ToString());
 
             sw.Close();
-        }        
+        }
+
+        public static void loadPrices()
+        {
+            StreamReader sr = new StreamReader("prices.csv");
+
+            string[] datas = sr.ReadLine().Split(';');
+
+            sr.Close();
+
+            adultPrice = int.Parse(datas[0]);
+            childrenPrice = int.Parse(datas[1]);
+            taseTicketPrice = int.Parse(datas[2]);
+            rafflePrice = int.Parse(datas[3]);
+        }
+
+        public static void savePrices()
+        {
+            StreamWriter sr = new StreamWriter("prices.csv",false);
+
+            sr.WriteLine(string.Format("{0};{1};{2}{3}", adultPrice, childrenPrice, taseTicketPrice, rafflePrice));
+
+            sr.Close();
+        }
     }
 }

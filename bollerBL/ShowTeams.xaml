@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="ShowTeams" Height="450" Width="856.723" Name="showTeams" SizeChanged="ShowTeams_SizeChanged" Closing="ShowTeams_Closing">
     <Grid>
-        <DataGrid Name="datagrid" HorizontalAlignment="Stretch" AutoGenerateColumns="False" ItemsSource="{Binding Source={x:Static local:Misc.teams}}" ColumnWidth="*">
+        <DataGrid Name="datagrid" HorizontalAlignment="Stretch" AutoGenerateColumns="False" ItemsSource="{Binding Source={x:Static local:Misc.teams}}" ColumnWidth="*" FontWeight="Bold">
             <DataGrid.ColumnHeaderStyle>
                 <Style TargetType="DataGridColumnHeader">
                     <Setter Property="ContentTemplate">
@@ -19,6 +19,9 @@
                     </Setter>
                 </Style>
             </DataGrid.ColumnHeaderStyle>
+
+            
+            
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Csapat neve" Binding="{Binding Path=Name, Mode=TwoWay}" ></DataGridTextColumn>
                 <DataGridTextColumn Header="Csapatvezető neve" Binding="{Binding Path=Leader, Mode=TwoWay}" ></DataGridTextColumn>
@@ -27,11 +30,22 @@
                 <DataGridTextColumn Header="Csapatvezető postacíme" Binding="{Binding Path=Address, Mode=TwoWay}" ></DataGridTextColumn>
                 <DataGridTextColumn Header="Csapat létszáma" Binding="{Binding Path=Number, Mode=TwoWay}" ></DataGridTextColumn>
                 <DataGridCheckBoxColumn Header="Nevezeési díj befizetve" Binding="{Binding Path=Paid, Mode=TwoWay}" ></DataGridCheckBoxColumn>
+                <DataGridTextColumn Header="Udvar sorszáma" Binding="{Binding Path=GardenNumber, Mode=TwoWay}" ></DataGridTextColumn>
                 <DataGridTemplateColumn Header="Behajtási engedély nyomtatása">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
                             <Button Click="btnEntryPermission_Click" >
                                 <TextBlock Text="Nyomtatás" TextWrapping="Wrap"></TextBlock>
+                            </Button>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                
+                <DataGridTemplateColumn Header="Csapat törlése">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Click="btnDeleteTeam_Click" >
+                                <TextBlock Text="Törlés" TextWrapping="Wrap"></TextBlock>
                             </Button>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>

@@ -54,5 +54,10 @@ namespace bollerBL
             Team team = (Team)datagrid.SelectedItem;
             team.createEntryPermit();
         }
+
+        private void btnDeleteTeam_Click(object sender, RoutedEventArgs e)
+        {
+            Misc.teams.Remove((Team)datagrid.SelectedItem);
+        }
     }
 }

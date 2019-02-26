@@ -79,6 +79,9 @@
     <Compile Include="NewTeam.xaml.cs">
       <DependentUpon>NewTeam.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Prices.xaml.cs">
+      <DependentUpon>Prices.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ShowTeams.xaml.cs">
       <DependentUpon>ShowTeams.xaml</DependentUpon>
     </Compile>
@@ -115,6 +118,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="NewTeam.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Prices.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
