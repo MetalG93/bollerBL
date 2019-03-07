@@ -91,6 +91,8 @@ namespace bollerBL
         {
             decimal children = 0;
             decimal adult = 0;
+            int taste = int.Parse(txtTastingTicket.Text);
+            int raffle = int.Parse(txtRaffle.Text);
 
             foreach (GroupBox gb in ticketBoxes.Children)
             {
@@ -109,11 +111,11 @@ namespace bollerBL
                 money += int.Parse(((TextBox)((Grid)sMoney.Children[i]).Children[1]).Text) * int.Parse(((Label)((Grid)sMoney.Children[i]).Children[0]).Content.ToString());
             }
 
-            if (MessageBox.Show(string.Format("Összes pénz: {0}{1}Hozott pénz: {2}{3}Készítsek nyugtát?", children * Misc.childrenPrice + adult * Misc.adultPrice, Environment.NewLine, money, Environment.NewLine), string.Format("{0}{1}", gates[cbxGatge.SelectedIndex], shifts[cbxShift.SelectedIndex]), MessageBoxButton.YesNo) == MessageBoxResult.Yes)
-                createBill();
+            if (MessageBox.Show(string.Format("Összes pénz: {0}{1}Hozott pénz: {2}{3}Készítsek nyugtát?", children * Misc.childrenPrice + adult * Misc.adultPrice + taste * Misc.taseTicketPrice + raffle * Misc.rafflePrice, Environment.NewLine, money, Environment.NewLine), string.Format("{0} {1}", gates[cbxGatge.SelectedIndex], shifts[cbxShift.SelectedIndex]), MessageBoxButton.YesNo) == MessageBoxResult.Yes)
+                createBill(int.Parse(children.ToString()), int.Parse(adult.ToString()), taste, raffle);
         }
 
-        private void createBill()
+        private void createBill(int children, int adult, int taste, int raffle)
         {
             Font yearFont = FontFactory.GetFont("Arial", 25);
             Font font = FontFactory.GetFont("Arial", 12);
@@ -156,6 +158,14 @@ namespace bollerBL
             emptyTable.AddCell(emptyCell);
             doc.Add(emptyTable);
 
+            PdfPTable preTicekt = new PdfPTable(4);
+            preTicekt.AddCell(new PdfPCell(new Phrase("Kóstolójegy: ")));
+            preTicekt.AddCell(new PdfPCell(new Phrase(taste)));
+            preTicekt.AddCell(new PdfPCell(new Phrase("Tombola: ")));
+            preTicekt.AddCell(new PdfPCell(new Phrase(raffle)));
+
+            doc.Add(preTicekt);
+
             PdfPTable ticketTable = new PdfPTable(6);
 
             PdfPCell ticketType = new PdfPCell(new Phrase("Felnőtt jegyek"));
@@ -164,79 +174,14 @@ namespace bollerBL
 
             ticketTable.AddCell(ticketType);
 
-            foreach (GroupBox gb in ticketBoxes.Children)
-            {
-                if (gb.Header.ToString() == "Felnőtt jegyek")
-                {
-                    Grid g = (Grid)gb.Content;
-
-                    PdfPCell pdfPCell = new PdfPCell();
-                    pdfPCell.Border = PdfPCell.NO_BORDER;
-
-                    for (int i = 0; i < g.Children.Count; i++)
-                    {
-                        
-                        if (g.Children[i] is Label)
-                        {
-                            pdfPCell.Phrase = new Phrase(((Label)g.Children[i]).Content.ToString());
-                            ticketTable.AddCell(pdfPCell);
-                        }
-
-                        if (g.Children[i] is TextBox)
-                        {
-                            pdfPCell.Phrase = new Phrase(((TextBox)g.Children[i]).Text);
-                            ticketTable.AddCell(pdfPCell);
-                        }
-                    }
-                    pdfPCell.Phrase = new Phrase("Eladott jegyek száma:");
-                    ticketTable.AddCell(pdfPCell);
-
-                    pdfPCell.Phrase = new Phrase((decimal.Parse(((TextBox)g.Children[3]).Text) - decimal.Parse(((TextBox)g.Children[1]).Text)).ToString());
-                    ticketTable.AddCell(pdfPCell);
-                }
-            }
-
-            doc.Add(ticketTable);
-
-            ticketTable.DeleteBodyRows();
-
-            
+            ticketTable.AddCell(new PdfPCell(new Phrase(adult.ToString())));
 
             ticketType.Phrase = new Phrase("Gyerek jegyek");
-            ticketTable.AddCell(ticketType);
+            ticketType.Border = PdfPCell.NO_BORDER;
+            ticketType.Colspan = 6;
 
-            foreach (GroupBox gb in ticketBoxes.Children)
-            {
-                if (gb.Header.ToString() == "Gyerek jegyek")
-                {
-                    Grid g = (Grid)gb.Content;
+            ticketTable.AddCell(new PdfPCell(new Phrase(children.ToString())));
 
-                    PdfPCell pdfPCell = new PdfPCell();
-                    pdfPCell.Border = PdfPCell.NO_BORDER;
-
-                    for (int i = 0; i < g.Children.Count; i++)
-                    {
-                        
-                        if (g.Children[i] is Label)
-                        {
-                            pdfPCell.Phrase = new Phrase(((Label)g.Children[i]).Content.ToString());
-                            ticketTable.AddCell(pdfPCell);
-                        }
-
-                        if (g.Children[i] is TextBox)
-                        {
-                            pdfPCell.Phrase = new Phrase(((TextBox)g.Children[i]).Text);
-                            ticketTable.AddCell(pdfPCell);
-                        }
-                    }
-
-                    pdfPCell.Phrase = new Phrase("Eladott jegyek száma:");
-                    ticketTable.AddCell(pdfPCell);
-
-                    pdfPCell.Phrase = new Phrase((decimal.Parse(((TextBox)g.Children[3]).Text) - decimal.Parse(((TextBox)g.Children[1]).Text)).ToString());
-                    ticketTable.AddCell(pdfPCell);
-                }
-            }
             doc.Add(ticketTable);
 
             doc.Close();

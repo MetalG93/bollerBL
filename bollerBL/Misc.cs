@@ -41,15 +41,19 @@ namespace bollerBL
 
         public static void loadArtist()
         {
-            /*StreamReader sr = new StreamReader("");
+            StreamReader sr = new StreamReader("artists.csv");
 
             while (!sr.EndOfStream)
             {
-
+                string[] datas = sr.ReadLine().Split(';');
+                artists.Add(new Artist(datas[0], datas[1], datas[2], int.Parse(datas[3]), DateTime.Parse(datas[4]), DateTime.Parse(datas[5])));
             }
 
-            sr.Close();*/
+            sr.Close();
         }
+
+        public static void saveArtist()
+        { }
 
         public static void placeWindow(Window window)
         {
@@ -64,7 +68,7 @@ namespace bollerBL
             while (!sr.EndOfStream)
             {
                 string[] datas = sr.ReadLine().Split(';');
-                teams.Add(new Team(int.Parse(datas[0]), datas[1], datas[2], datas[3], datas[4], datas[5], int.Parse(datas[6]), bool.Parse(datas[7]), datas[9], bool.Parse(datas[8]),int.Parse(datas[10])));
+                teams.Add(new Team(datas[0], datas[1], datas[2], datas[3], datas[4], int.Parse(datas[5]), bool.Parse(datas[6]), datas[7], bool.Parse(datas[9]), int.Parse(datas[8])));
             }
 
             sr.Close();
@@ -96,9 +100,9 @@ namespace bollerBL
 
         public static void savePrices()
         {
-            StreamWriter sr = new StreamWriter("prices.csv",false);
+            StreamWriter sr = new StreamWriter("prices.csv", false);
 
-            sr.WriteLine(string.Format("{0};{1};{2}{3}", adultPrice, childrenPrice, taseTicketPrice, rafflePrice));
+            sr.WriteLine(string.Format("{0};{1};{2};{3}", adultPrice, childrenPrice, taseTicketPrice, rafflePrice));
 
             sr.Close();
         }

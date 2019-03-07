@@ -15,6 +15,11 @@
                 <MenuItem Header="Új csapat" Click="mniNewTeam"></MenuItem>
                 <MenuItem Header="Csapatok megtekintése/módosítása" Click="mniEditTeam"></MenuItem>
             </MenuItem>
+            <MenuItem Header="Fellépők">
+                <MenuItem Header="Új fellépő" Click="mniNewArtist"></MenuItem>
+                <MenuItem Header="Fellépők megtekintése/módosítása" Click="mniEditArtist"></MenuItem>
+                <MenuItem Header="Idővonal megtekintése" Click="mniArtistTimeLine"></MenuItem>
+            </MenuItem>
             <MenuItem Header="Árak módosítása" Click="mniChangePrice"></MenuItem>
         </Menu>
         <Button Content="Kapu összesítés" HorizontalAlignment="Left" Margin="10,23,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>

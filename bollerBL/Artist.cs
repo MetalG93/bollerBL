@@ -40,6 +40,7 @@ namespace bollerBL
         public string Contact_mail { get => contact_mail; set => contact_mail = value; }
         public int Fee { get => fee; set => fee = value; }
         public DateTime Begin { get => begin; set => begin = value; }
+        public string sBegin { get => begin.ToString("hh:mm"); }
         public DateTime End { get => end; set => end = value; }
         public TimeSpan Length { get => length; set => length = value; }
     }

@@ -13,7 +13,7 @@ namespace bollerBL
     class Team
     {
         string name, leader, phone, email, address, plateNumber;
-        int number, index, gardenNumber;
+        int number, gardenNumber;
         bool paid, entryPermissionSent;
 
         #region Constructors
@@ -27,18 +27,10 @@ namespace bollerBL
             Number = _num;
             Paid = _paid;
 
-            int max = 0;
-            foreach (Team t in Misc.teams)
-            {
-                if (t.Index > max)
-                    max = Index;
-            }
-            Index = max + 1;
-
             entryPermissionSent = false;
         }
 
-        public Team(int _index, string _name, string _leader, string _phone, string _email, string _address, int _num, bool _paid)
+        public Team(string _name, string _leader, string _phone, string _email, string _address, int _num, bool _paid, string _plateNum)
         {
             Name = _name;
             Leader = _leader;
@@ -47,25 +39,11 @@ namespace bollerBL
             Address = _address;
             Number = _num;
             Paid = _paid;
-            Index = _index;
-            entryPermissionSent = false;
-        }
-
-        public Team(int _index, string _name, string _leader, string _phone, string _email, string _address, int _num, bool _paid, string _plateNum)
-        {
-            Name = _name;
-            Leader = _leader;
-            Phone = _phone;
-            Email = _email;
-            Address = _address;
-            Number = _num;
-            Paid = _paid;
-            Index = _index;
             PlateNumber = _plateNum;
             entryPermissionSent = false;
         }
 
-        public Team(int _index, string _name, string _leader, string _phone, string _email, string _address, int _num, bool _paid, string _plateNum, bool _entryPermission)
+        public Team(string _name, string _leader, string _phone, string _email, string _address, int _num, bool _paid, string _plateNum, bool _entryPermission)
         {
             Name = _name;
             Leader = _leader;
@@ -74,12 +52,11 @@ namespace bollerBL
             Address = _address;
             Number = _num;
             Paid = _paid;
-            Index = _index;
             PlateNumber = _plateNum;
             entryPermissionSent = _entryPermission;
         }
 
-        public Team(int _index, string _name, string _leader, string _phone, string _email, string _address, int _num, bool _paid, string _plateNum, bool _entryPermission, int _gardenNumber)
+        public Team(string _name, string _leader, string _phone, string _email, string _address, int _num, bool _paid, string _plateNum, bool _entryPermission, int _gardenNumber)
         {
             Name = _name;
             Leader = _leader;
@@ -88,7 +65,6 @@ namespace bollerBL
             Address = _address;
             Number = _num;
             Paid = _paid;
-            Index = _index;
             PlateNumber = _plateNum;
             entryPermissionSent = _entryPermission;
             GardenNumber = _gardenNumber;
@@ -103,7 +79,6 @@ namespace bollerBL
         public int Number { get => Number1; set => Number1 = value; }
         public bool Paid { get => paid; set => paid = value; }
         public int Number1 { get => Number2; set => Number2 = value; }
-        public int Index { get => Index1; set => Index1 = value; }
         public string Name1 { get => name; set => name = value; }
         public string Leader1 { get => leader; set => leader = value; }
         public string Phone1 { get => phone; set => phone = value; }
@@ -111,12 +86,11 @@ namespace bollerBL
         public string Address1 { get => address; set => address = value; }
         public string PlateNumber { get => plateNumber; set => plateNumber = value; }
         public int Number2 { get => number; set => number = value; }
-        public int Index1 { get => index; set => index = value; }
         public int GardenNumber { get => gardenNumber; set => gardenNumber = value; }
 
         public override string ToString()
         {
-            return string.Format("{0};{1};{2};{3};{4};{5};{6};{7};{8};{9};{10}", Index1, Name1, Leader1, Phone1, Email1, Address1, Number1, paid, entryPermissionSent, PlateNumber, GardenNumber);
+            return string.Format("{0};{1};{2};{3};{4};{5};{6};{7};{8};{9}",  Name1, Leader1, Phone1, Email1, Address1, Number1, paid, entryPermissionSent, PlateNumber, GardenNumber);
         }
 
         //A behajtási engedély elkészítésée

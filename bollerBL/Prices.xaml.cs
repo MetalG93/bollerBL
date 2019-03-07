@@ -36,6 +36,7 @@ namespace bollerBL
             Misc.taseTicketPrice = int.Parse(txtTasteTicketPrice.Text);
             Misc.rafflePrice = int.Parse(txtRafflePrice.Text);
             Misc.savePrices();
+            MessageBox.Show("Kész!");
         }
     }
 }

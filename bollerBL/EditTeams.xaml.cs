@@ -30,7 +30,7 @@ namespace bollerBL
 
         private void fillDatas(int index)
         {
-            int i = 0;
+            /*int i = 0;
             while (i < Misc.teams.Count && Misc.teams[i].Index != index)
                 i++;
 
@@ -40,7 +40,7 @@ namespace bollerBL
             txtEmail.Text = Misc.teams[i].Email;
             txtAddress.Text = Misc.teams[i].Address;
             txtNumber.Text = Misc.teams[i].Number.ToString();
-            chxPaid.IsChecked = Misc.teams[i].Paid;
+            chxPaid.IsChecked = Misc.teams[i].Paid;*/
         }
 
         private void placeUI()

@@ -49,10 +49,28 @@ namespace bollerBL
             st.Show();
         }
 
+        private void mniNewArtist(object sender, RoutedEventArgs e)
+        {
+            NewTeam nt = new NewTeam();
+            nt.Show();
+        }
+
+        private void mniEditArtist(object sender, RoutedEventArgs e)
+        {
+            ShowArtist sa = new ShowArtist();
+            sa.Show();
+        }
+
         private void mniChangePrice(object sender, RoutedEventArgs e)
         {
             Prices p = new Prices();
             p.Show();
+        }
+
+        private void mniArtistTimeLine(object sender, RoutedEventArgs e)
+        {
+            Timeline tl = new Timeline();
+            tl.Show();
         }
     }
 }

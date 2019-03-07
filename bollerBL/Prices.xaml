@@ -5,14 +5,14 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:bollerBL"
         mc:Ignorable="d"
-        Title="Prices" Height="200" Width="250">
+        Height="220" Width="250" Title="Árak móosítása">
     <Window.Resources>
         <Style TargetType="Label">
             <Setter Property="VerticalAlignment" Value="Top"></Setter>
             <Setter Property="HorizontalAlignment" Value="Left"></Setter>
             <Setter Property="HorizontalContentAlignment" Value="Right"></Setter>
             <Setter Property="Width" Value="100"></Setter>
-            <Setter Property="Height" Value="25"></Setter>
+            <Setter Property="Height" Value="30"></Setter>
         </Style>
 
         <Style TargetType="TextBox">
@@ -29,12 +29,12 @@
         <Label Content="Gyerek belépő:" Margin="10,45,0,0"></Label>
         <TextBox Name="txtChildrenPrice" Margin="120,45,0,0"></TextBox>
         
-        <Label Content="Kóstolójegy:" Margin="10,70,0,0"></Label>
-        <TextBox Name="txtTasteTicketPrice" Margin="120,70,0,0"></TextBox>
+        <Label Content="Kóstolójegy:" Margin="10,80,0,0"></Label>
+        <TextBox Name="txtTasteTicketPrice" Margin="120,80,0,0"></TextBox>
         
-        <Label Content="Tombola:" Margin="10,105,0,0"></Label>
-        <TextBox Name="txtRafflePrice" Margin="120,105,0,0"></TextBox>
+        <Label Content="Tombola:" Margin="10,115,0,0"></Label>
+        <TextBox Name="txtRafflePrice" Margin="120,115,0,0"></TextBox>
 
-        <Button Name="btnOk" Margin="10,140,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="210" Content="OK" Click="BtnOk_Click"></Button>
+        <Button Name="btnOk" Margin="10,150,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="210" Height="25" Content="OK" Click="BtnOk_Click"></Button>
     </Grid>
 </Window>
