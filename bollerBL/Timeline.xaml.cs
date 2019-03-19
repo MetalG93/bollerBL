@@ -25,8 +25,12 @@ namespace bollerBL
         DispatcherTimer timer;
         double top;
         int per = 150;
+
         public Timeline()
         {
+            if (Misc.artists.Count == 0)
+                Misc.loadArtist();
+
             InitializeComponent();
             actualTime = new Rectangle();
 
@@ -97,7 +101,7 @@ namespace bollerBL
                 rectangle.Height = (double)(art.Length.TotalMinutes / 5);
 
                 TextBlock tb = new TextBlock();
-                tb.Margin=new Thickness(10, 10, 0, 0);
+                tb.Margin = new Thickness(10, 10, 0, 0);
                 tb.Text = art.Name;
 
                 rectangle.Children.Add(tb);

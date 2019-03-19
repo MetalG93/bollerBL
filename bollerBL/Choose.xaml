@@ -5,8 +5,21 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:bollerBL"
         mc:Ignorable="d"
-        Title="Choose" Height="450" Width="800">
+        Title="Böllér Bajnokok Ligája" Height="300" Width="400">
     <Grid>
+
+        <Grid.Resources>
+            <Style TargetType="GroupBox">
+                <Setter Property="HorizontalAlignment" Value="Left"></Setter>
+                <Setter Property="VerticalAlignment" Value="Top"></Setter>
+            </Style>
+
+            <Style TargetType="Button">
+                <Setter Property="HorizontalAlignment" Value="Left"></Setter>
+                <Setter Property="VerticalAlignment" Value="Top"></Setter>
+            </Style>
+        </Grid.Resources>
+        
         <Menu VerticalAlignment="Top">
             <MenuItem Header="Fájl">
                 <MenuItem Header="Kijelentkezés" Click="mniLogoff_Click"></MenuItem>
@@ -20,8 +33,19 @@
                 <MenuItem Header="Fellépők megtekintése/módosítása" Click="mniEditArtist"></MenuItem>
                 <MenuItem Header="Idővonal megtekintése" Click="mniArtistTimeLine"></MenuItem>
             </MenuItem>
+            <MenuItem Header="Vendégek">
+                <MenuItem Header="Új vendég" Click="mniNewGuest"></MenuItem>
+                <MenuItem Header="Vendégek megtekintése/módosítása" Click="mniEditGuest"></MenuItem>
+            </MenuItem>
             <MenuItem Header="Árak módosítása" Click="mniChangePrice"></MenuItem>
         </Menu>
-        <Button Content="Kapu összesítés" HorizontalAlignment="Left" Margin="10,23,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
+
+        <Button Content="Kapu összesítés"  Margin="10,25,0,0" Width="100" Height="25" Click="btnGateFinancial_Click"/>
+        <GroupBox Margin="10,60,0,0" Header="Rendszám nyomtatása" Height="60" Width="250" >
+            <Grid>
+                <TextBox Name="txtPlateNum" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="5,10,0,0" Width="100" Grid.Column="1"></TextBox>
+                <Button Content="Rendszám" HorizontalAlignment="Left" Margin="115,10,0,0" VerticalAlignment="Top" Width="100"  Click="btnCustonPlantNum_Click" Grid.Column="1"/>
+            </Grid>
+        </GroupBox>
     </Grid>
 </Window>

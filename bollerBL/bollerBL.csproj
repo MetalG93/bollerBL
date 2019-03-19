@@ -34,6 +34,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>icon.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="fastJSON">
       <HintPath>..\..\..\..\OneDrive\Asztali gép\fastJSON\fastJSONcore\obj\Debug\net4.0\fastJSON.dll</HintPath>
@@ -79,11 +82,17 @@
     <Compile Include="NewArtist.xaml.cs">
       <DependentUpon>NewArtist.xaml</DependentUpon>
     </Compile>
+    <Compile Include="newGuest.xaml.cs">
+      <DependentUpon>newGuest.xaml</DependentUpon>
+    </Compile>
     <Compile Include="NewTeam.xaml.cs">
       <DependentUpon>NewTeam.xaml</DependentUpon>
     </Compile>
     <Compile Include="Prices.xaml.cs">
       <DependentUpon>Prices.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="showGuests.xaml.cs">
+      <DependentUpon>showGuests.xaml</DependentUpon>
     </Compile>
     <Compile Include="ShowTeams.xaml.cs">
       <DependentUpon>ShowTeams.xaml</DependentUpon>
@@ -123,11 +132,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="newGuest.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="NewTeam.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Prices.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="showGuests.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -172,6 +189,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="ikon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="icon.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

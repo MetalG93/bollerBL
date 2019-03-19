@@ -23,5 +23,10 @@ namespace bollerBL
         public string Phone { get => phone; set => phone = value; }
         public string Email { get => email; set => email = value; }
         public bool Come { get => come; set => come = value; }
+
+        public override string ToString()
+        {
+            return string.Format("{0};{1};{2};{3}", name, phone, email, come);
+        }
     }
 }

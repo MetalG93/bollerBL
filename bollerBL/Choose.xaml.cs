@@ -31,46 +31,130 @@ namespace bollerBL
             this.Close();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void btnGateFinancial_Click(object sender, RoutedEventArgs e)
         {
-            GateFinancial gf = new GateFinancial();
-            gf.Show();
+            try
+            {
+                GateFinancial gf = new GateFinancial();
+                gf.Show();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Nem tudtam megnyitni az ablakot!" + Environment.NewLine + ex.Message);
+                Misc.logging("GateFinancial " + ex.Message);
+            }
+        }
+
+        private void btnCustonPlantNum_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                if (txtPlateNum.Text != "")
+                    Misc.createEntryPermit(txtPlateNum.Text.ToUpper());
+                else
+                    MessageBox.Show("Adjon meg rendszámot!");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Nem tudtam megnyitni az ablakot!" + Environment.NewLine + ex.Message);
+                Misc.logging("GateFinancial " + ex.Message);
+            }
         }
 
         private void mniNewTeam(object sender, RoutedEventArgs e)
         {
-            NewTeam nt = new NewTeam();
-            nt.Show();
+            try
+            {
+                NewTeam nt = new NewTeam();
+                nt.Show();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Nem tudtam megnyitni az ablakot!" + Environment.NewLine + ex.Message);
+                Misc.logging("NewTeam " + ex.Message);
+            }
         }
 
         private void mniEditTeam(object sender, RoutedEventArgs e)
         {
-            ShowTeams st = new ShowTeams();
-            st.Show();
+            try
+            {
+                ShowTeams st = new ShowTeams();
+                st.Show();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Nem tudtam megnyitni az ablakot!" + Environment.NewLine + ex.Message);
+                Misc.logging("ShowTeams " + ex.Message);
+            }
         }
 
         private void mniNewArtist(object sender, RoutedEventArgs e)
         {
-            NewTeam nt = new NewTeam();
-            nt.Show();
+            try
+            {
+                NewArtist na = new NewArtist();
+                na.Show();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Nem tudtam megnyitni az ablakot!" + Environment.NewLine + ex.Message);
+                Misc.logging("NewArtist " + ex.Message);
+            }
         }
 
         private void mniEditArtist(object sender, RoutedEventArgs e)
         {
-            ShowArtist sa = new ShowArtist();
-            sa.Show();
-        }
-
-        private void mniChangePrice(object sender, RoutedEventArgs e)
-        {
-            Prices p = new Prices();
-            p.Show();
+            try
+            {
+                ShowArtist sa = new ShowArtist();
+                sa.Show();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Nem tudtam megnyitni az ablakot!" + Environment.NewLine + ex.Message);
+                Misc.logging("ShowArtist " + ex.Message);
+            }
         }
 
         private void mniArtistTimeLine(object sender, RoutedEventArgs e)
         {
-            Timeline tl = new Timeline();
-            tl.Show();
+            try
+            {
+                Timeline tl = new Timeline();
+                tl.Show();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Nem tudtam megnyitni az ablakot!" + Environment.NewLine + ex.Message);
+                Misc.logging("Timeline " + ex.Message);
+            }
+        }
+
+        private void mniChangePrice(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                Prices p = new Prices();
+                p.Show();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Nem tudtam megnyitni az ablakot!" + Environment.NewLine + ex.Message);
+                Misc.logging("Prices " + ex.Message);
+            }
+        }
+
+        private void mniNewGuest(object sender, RoutedEventArgs e)
+        {
+            newGuest ng = new newGuest();
+            ng.Show();
+        }
+
+        private void mniEditGuest(object sender, RoutedEventArgs e)
+        {
+            showGuests sg = new showGuests();
+            sg.Show();
         }
     }
 }

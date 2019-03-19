@@ -25,6 +25,7 @@
 
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Fellépő neve" Binding="{Binding Path=Name, Mode=TwoWay}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Kapcsolattartó neve" Binding="{Binding Path=Contact_name, Mode=TwoWay}"></DataGridTextColumn>
                 <DataGridTextColumn Header="Kapcsolattartó telefonszáma" Binding="{Binding Path=Contact_phone, Mode=TwoWay}"></DataGridTextColumn>
                 <DataGridTextColumn Header="Kapcsolattartó neve" Binding="{Binding Path=Contact_mail, Mode=TwoWay}"></DataGridTextColumn>
                 <DataGridTextColumn Header="Fellépési díj" Binding="{Binding Path=Fee, Mode=TwoWay}"></DataGridTextColumn>

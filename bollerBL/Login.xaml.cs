@@ -80,6 +80,7 @@ namespace bollerBL
         {
             if (pswPass.Password == Misc.users[cmbUser.SelectedIndex].PassWord)
             {
+                Misc.logging("Bejelentkezés: " + Misc.users[cmbUser.SelectedIndex].Name);
                 Choose ch = new Choose();
                 ch.Show();
                 this.Close();

@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:bollerBL"
         mc:Ignorable="d"
-        Title="GateFinancial" Height="500" Width="850">
+        Title="GateFinancial" Height="505" Width="850">
     <Window.Resources>
         <Style TargetType="Label">
             <Setter Property="VerticalAlignment" Value="Top"></Setter>
@@ -24,6 +24,7 @@
             <Setter Property="HorizontalAlignment" Value="Left"></Setter>
             <Setter Property="VerticalAlignment" Value="Top"></Setter>
             <Setter Property="Width" Value="100"></Setter>
+            <Setter Property="HorizontalContentAlignment" Value="Right"></Setter>
         </Style>
     </Window.Resources>
     <Grid>
@@ -39,10 +40,10 @@
             
             <Grid>
                 <Label Content="Kóstolójegyek: " Margin="10,10,0,0"></Label>
-                <TextBox Name="txtTastingTicket" Margin="120,10,0,0" Width="50"></TextBox>
+                <TextBox Name="txtTastingTicket" Margin="120,10,0,0" Width="50" Text="0"></TextBox>
                 <Label Content="db" Margin="180,10,0,0" Width="30"></Label>
                 <Label Content="Tombola: " Margin="230,10,0,0"></Label>
-                <TextBox Name="txtRaffle" Margin="340,10,0,0" Width="50"></TextBox>
+                <TextBox Name="txtRaffle" Margin="340,10,0,0" Width="50" Text="0"></TextBox>
                 <Label Content="db" Margin="400,10,0,0" Width="30"></Label>
             </Grid>
             
@@ -54,7 +55,7 @@
                 </ComboBox>
                 <Button Name="btnNewBox" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="285,10,0,0" Width="100" Height="25" Visibility="Visible" Content="Új doboz" Click="BtnNewBox_Click"></Button>
             </Grid>
-            <ScrollViewer VerticalScrollBarVisibility="Auto">
+            <ScrollViewer VerticalScrollBarVisibility="Auto" Height="360" Padding="10,0,0,0">
                 <StackPanel Name="ticketBoxes">
                     
                 </StackPanel>

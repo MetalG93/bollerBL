@@ -5,14 +5,14 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:bollerBL"
         mc:Ignorable="d"
-        Title="NewArtist" Height="450" Width="800">
+        Title="Új fellépő" Height="290" Width="350">
     <Grid>
         <Grid.Resources>
 
             <Style TargetType="Label">
                 <Setter Property="HorizontalAlignment" Value="Left"></Setter>
                 <Setter Property="HorizontalContentAlignment" Value="Right"></Setter>
-                <Setter Property="Width" Value="150"></Setter>
+                <Setter Property="Width" Value="160"></Setter>
                 <Setter Property="Height" Value="25"></Setter>
                 <Setter Property="Margin" Value="10,0,0,0"></Setter>
             </Style>
@@ -25,7 +25,51 @@
             </Style>
 
         </Grid.Resources>
-        
+        <StackPanel>
+            
+            <Grid Height="30">
+                <Label Content="Fellépő neve"></Label>
+                <TextBox Name="txtArtistName"></TextBox>
+            </Grid>
+            
+            <Grid Height="30">
+                <Label Content="Kapcsolattartó neve"></Label>
+                <TextBox Name="txtContactName"></TextBox>
+            </Grid>
+            
+            <Grid Height="30">
+                <Label Content="Kapcsolattartó telefonszáma"></Label>
+                <TextBox Name="txtContactPhone"></TextBox>
+            </Grid>
+            
+            <Grid Height="30">
+                <Label Content="Kapcsolattartó e-mail címe"></Label>
+                <TextBox Name="txtContactMail"></TextBox>
+            </Grid>
+            
+            <Grid Height="30">
+                <Label Content="Fellépési díj"></Label>
+                <TextBox Name="txtFee"></TextBox>
+            </Grid>
+            
+            <Grid Height="30">
+                <Label Content="Fellépés kezdete"></Label>
+                <TextBox Name="txtShowBegin"></TextBox>
+            </Grid>
+            
+            <Grid Height="30">
+                <Label Content="Fellépés hossza"></Label>
+                <TextBox Name="txtShowLengthHour" Width="50" HorizontalContentAlignment="Right" Text="0"></TextBox>
+                <Label Content="óra" Margin="220,0,0,0" Width="30" HorizontalContentAlignment="Left"></Label>
+                <TextBox Name="txtShowLengthMinutes" Width="50" Margin="260,0,0,0" HorizontalContentAlignment="Right" Text="0"></TextBox>
+                <Label Content="perc" Width="35" Margin="310,0,0,0" HorizontalContentAlignment="Left"></Label>
+            </Grid>
+            
+            <Grid Height="50">
+                <Button Content="Mentés" Width="330" Height="30" Click="Button_Click"></Button>
+            </Grid>
+            
+        </StackPanel>
         
     </Grid>
 </Window>
