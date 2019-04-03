@@ -7,15 +7,18 @@
         <Style x:Name="windows" TargetType="Window">
             <Setter Property="Background" Value="#3ba15e"></Setter>
             <Setter Property="Icon" Value="ikon.png"></Setter>
+            <Setter Property="ResizeMode" Value="NoResize"></Setter>
         </Style>
 
         <Style TargetType="{x:Type local:Choose}" BasedOn="{StaticResource {x:Type Window}}"></Style>
         <Style TargetType="{x:Type local:EditTeam}" BasedOn="{StaticResource {x:Type Window}}"></Style>
+        <Style TargetType="{x:Type local:EditUser}" BasedOn="{StaticResource {x:Type Window}}"></Style>
         <Style TargetType="{x:Type local:GateFinancial}" BasedOn="{StaticResource {x:Type Window}}"></Style>
         <Style TargetType="{x:Type local:Login}" BasedOn="{StaticResource {x:Type Window}}"></Style>
         <Style TargetType="{x:Type local:NewArtist}" BasedOn="{StaticResource {x:Type Window}}"></Style>
         <Style TargetType="{x:Type local:newGuest}" BasedOn="{StaticResource {x:Type Window}}"></Style>
         <Style TargetType="{x:Type local:NewTeam}" BasedOn="{StaticResource {x:Type Window}}"></Style>
+        <Style TargetType="{x:Type local:NewUser}" BasedOn="{StaticResource {x:Type Window}}"></Style>
         <Style TargetType="{x:Type local:Prices}" BasedOn="{StaticResource {x:Type Window}}"></Style>
         <Style TargetType="{x:Type local:ShowArtist}" BasedOn="{StaticResource {x:Type Window}}"></Style>
         <Style TargetType="{x:Type local:showGuests}" BasedOn="{StaticResource {x:Type Window}}"></Style>

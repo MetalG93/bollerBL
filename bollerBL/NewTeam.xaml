@@ -5,10 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:bollerBL"
         mc:Ignorable="d"
-        Title="Új csapat" Height="450" Width="800" SizeChanged="Window_SizeChanged">
+        Title="Új csapat" Height="330" Width="335">
     <Grid>
         <Grid.Resources>
-            
+
             <Style TargetType="Label">
                 <Setter Property="HorizontalAlignment" Value="Left"></Setter>
                 <Setter Property="HorizontalContentAlignment" Value="Right"></Setter>
@@ -53,7 +53,7 @@
 
             <Grid Height="35">
                 <Label Name="lblNumber" Content="Csapat létszáma:" ></Label>
-                <TextBox Name="txtNumber" PreviewTextInput="TxtNumber_PreviewTextInput" ></TextBox>
+                <TextBox Name="txtNumber" ></TextBox>
             </Grid>
 
             <Grid Height="35">

@@ -1,0 +1,42 @@
+﻿<Window x:Class="bollerBL.NewUser"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:bollerBL"
+        mc:Ignorable="d"
+        Title="Új felhasználó" Height="150" Width="300">
+    <Grid>
+        <Grid.Resources>
+            <Style TargetType="Label">
+                <Setter Property="HorizontalAlignment" Value="Left"></Setter>
+                <Setter Property="VerticalAlignment" Value="Top"></Setter>
+                <Setter Property="HorizontalContentAlignment" Value="Right"></Setter>
+                <Setter Property="Width" Value="50"></Setter>
+                <Setter Property="Height" Value="25"></Setter>
+            </Style>
+
+            <Style TargetType="TextBox">
+                <Setter Property="HorizontalAlignment" Value="Left"></Setter>
+                <Setter Property="VerticalAlignment" Value="Top"></Setter>
+                <Setter Property="Width" Value="200"></Setter>
+                <Setter Property="Height" Value="25"></Setter>
+            </Style>
+
+            <Style TargetType="PasswordBox">
+                <Setter Property="HorizontalAlignment" Value="Left"></Setter>
+                <Setter Property="VerticalAlignment" Value="Top"></Setter>
+                <Setter Property="Width" Value="200"></Setter>
+                <Setter Property="Height" Value="25"></Setter>
+            </Style>
+        </Grid.Resources>
+
+        <Label Content="Név" Margin="10,10,0,0"></Label>
+        <TextBox Name="txtName" Margin="70,10,0,0"></TextBox>
+
+        <Label Content="Jelszó" Margin="10,45,0,0"></Label>
+        <PasswordBox Name="txtPass" Margin="70,45,0,0"></PasswordBox>
+
+        <Button Name="btnOk" Content="Mentés" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,80,0,0" Width="260" Click="BtnOk_Click"></Button>
+    </Grid>
+</Window>

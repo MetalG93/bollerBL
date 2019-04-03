@@ -40,6 +40,18 @@ namespace bollerBL
             sr.Close();
         }
 
+        public static void saveUsers()
+        {
+            StreamWriter sw = new StreamWriter("artist.csv", false);
+
+            foreach (User u in users)
+            {
+                sw.WriteLine(u.ToString());
+            }
+
+            sw.Close();
+        }
+
         public static void loadArtist()
         {
             artists.Clear();
@@ -200,7 +212,9 @@ namespace bollerBL
 
 
                 PdfPTable plateTable = new PdfPTable(1);
-                plateTable.PaddingTop = PageSize.A4.Width / (float)1.5;
+                //plateTable.PaddingTop = PageSize.A4.Width / (float)1.5;
+                plateTable.PaddingTop = PageSize.A4.Width / calculatePadding(palteNum);
+                plateFont.Size = calculateFontSize(palteNum);
 
                 PdfPCell plateNum = new PdfPCell(new Phrase(palteNum, plateFont));
                 plateNum.Border = PdfPCell.NO_BORDER;
@@ -211,14 +225,41 @@ namespace bollerBL
 
                 doc.Close();
                 writer.Close();
-                //MessageBox.Show("PDF készítése sikeres!");
-                System.Diagnostics.Process.Start(filename);
+                MessageBox.Show(string.Format("PDF készítése sikeres!{0}Elmenteve a {1} mappába",Environment.NewLine, Misc.PDFpath));
+                //System.Diagnostics.Process.Start(filename);
             }
             catch (FieldAccessException)
             {
                 MessageBox.Show("");
             }
 
+        }
+
+        private static float calculatePadding(string text)
+        {
+
+            int multiplier = 1, calc=0;
+
+            while (calc < text.Length)
+            {
+                multiplier++;
+                calc += 8;
+            }
+
+            return ((float)(multiplier+1)/multiplier);
+        }
+
+        private static float calculateFontSize(string text)
+        {
+            int size = 125, calc = 0;
+
+            while (calc < text.Length)
+            {
+                size -= 20;
+                calc += 8;
+            }
+
+            return size;
         }
     }
 }

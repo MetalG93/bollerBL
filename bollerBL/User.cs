@@ -14,12 +14,20 @@ namespace bollerBL
         { get { return name; } }
 
         public string PassWord
-        { get { return passWord; } }
+        {
+            get { return passWord; }
+            set { passWord = value; }
+        }
 
         public User(string _name, string _password)
         {
             name = _name;
             passWord = _password;
+        }
+
+        public override string ToString()
+        {
+            return string.Format("{0};{1}", name, passWord);
         }
     }
 }

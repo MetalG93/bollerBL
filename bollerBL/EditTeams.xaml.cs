@@ -112,12 +112,5 @@ namespace bollerBL
 
             return ok;
         }
-
-        private void TxtNumber_PreviewTextInput(object sender, TextCompositionEventArgs e)
-        {
-            Regex regex = new Regex("[0-9]+");
-
-            if (regex.IsMatch(e.Text)) ;
-        }
     }
 }

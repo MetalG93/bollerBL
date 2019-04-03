@@ -53,7 +53,7 @@
 
             <Grid Height="35">
                 <Label Name="lblNumber" Content="Csapat létszáma:" ></Label>
-                <TextBox Name="txtNumber" PreviewTextInput="TxtNumber_PreviewTextInput" ></TextBox>
+                <TextBox Name="txtNumber" ></TextBox>
             </Grid>
 
             <Grid Height="35">

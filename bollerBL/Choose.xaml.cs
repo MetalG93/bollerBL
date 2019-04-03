@@ -156,5 +156,22 @@ namespace bollerBL
             showGuests sg = new showGuests();
             sg.Show();
         }
+
+        private void btnOpenPdfContainer(object sender, RoutedEventArgs e)
+        {
+            System.Diagnostics.Process.Start(Misc.PDFpath);
+        }
+
+        private void mniNewUser_Click(object sender, RoutedEventArgs e)
+        {
+            NewUser nu = new NewUser();
+            nu.Show();
+        }
+
+        private void mniEditUser_Click(object sender, RoutedEventArgs e)
+        {
+            EditUser eu = new EditUser();
+            eu.Show();
+        }
     }
 }

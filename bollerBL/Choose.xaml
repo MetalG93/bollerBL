@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:bollerBL"
         mc:Ignorable="d"
-        Title="Böllér Bajnokok Ligája" Height="300" Width="400">
+        Title="Böllér Bajnokok Ligája" Height="300" Width="450">
     <Grid>
 
         <Grid.Resources>
@@ -37,14 +37,19 @@
                 <MenuItem Header="Új vendég" Click="mniNewGuest"></MenuItem>
                 <MenuItem Header="Vendégek megtekintése/módosítása" Click="mniEditGuest"></MenuItem>
             </MenuItem>
+            <MenuItem Header="Felhasználók">
+                <MenuItem Header="Új felhasználó" Click="mniNewUser_Click" ></MenuItem>
+                <MenuItem Header="Felhasználó módosítása" Click="mniEditUser_Click"></MenuItem>
+            </MenuItem>
             <MenuItem Header="Árak módosítása" Click="mniChangePrice"></MenuItem>
         </Menu>
 
         <Button Content="Kapu összesítés"  Margin="10,25,0,0" Width="100" Height="25" Click="btnGateFinancial_Click"/>
-        <GroupBox Margin="10,60,0,0" Header="Rendszám nyomtatása" Height="60" Width="250" >
+        <Button Content="PDF tároló megnyitása" Margin="120,25,0,0" Width="100" Height="25" Click="btnOpenPdfContainer"></Button>
+        <GroupBox Margin="10,60,0,0" Header="Behajtási engedély" Height="90" Width="250" >
             <Grid>
-                <TextBox Name="txtPlateNum" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="5,10,0,0" Width="100" Grid.Column="1"></TextBox>
-                <Button Content="Rendszám" HorizontalAlignment="Left" Margin="115,10,0,0" VerticalAlignment="Top" Width="100"  Click="btnCustonPlantNum_Click" Grid.Column="1"/>
+                <TextBox Name="txtPlateNum" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,10,0,0" Width="200" Grid.Column="1" ></TextBox>
+                <Button Content="PDF készítése" HorizontalAlignment="Left" Margin="10,40,0,0" VerticalAlignment="Top" Width="200"  Click="btnCustonPlantNum_Click" />
             </Grid>
         </GroupBox>
     </Grid>

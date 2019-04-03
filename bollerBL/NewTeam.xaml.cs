@@ -24,7 +24,7 @@ namespace bollerBL
         public NewTeam()
         {
             InitializeComponent();
-            placeUI();
+            //placeUI();
         }
 
         private void placeUI()
@@ -47,11 +47,6 @@ namespace bollerBL
                     ((FrameworkElement)g.Children[1]).Margin = new Thickness(width + 20, 0, 0, 0);
                 }
             }
-        }
-
-        private void Window_SizeChanged(object sender, SizeChangedEventArgs e)
-        {
-            placeUI();
         }
 
         private void BtnOk_Click(object sender, RoutedEventArgs e)
@@ -95,13 +90,6 @@ namespace bollerBL
             }
 
             return ok;
-        }
-
-        private void TxtNumber_PreviewTextInput(object sender, TextCompositionEventArgs e)
-        {
-            Regex regex = new Regex("[0-9]+");
-
-            if (regex.IsMatch(e.Text)) ;
         }
     }
 }
