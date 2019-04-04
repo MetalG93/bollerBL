@@ -24,30 +24,8 @@ namespace bollerBL
         public NewTeam()
         {
             InitializeComponent();
-            //placeUI();
         }
 
-        private void placeUI()
-        {
-            double height = (this.Height - 25) / 8;
-            double width = (this.Width - 30) / 2;
-
-            foreach (Grid g in sPanel.Children)
-            {
-                if (g.Children.Count > 1)
-                {
-                    g.Height = height;
-                    g.Width = this.Width;
-
-                    ((Label)g.Children[0]).Width = width;
-
-                    if (object.Equals(g.Children[1].GetType(), typeof(TextBox)))
-                        ((TextBox)g.Children[1]).Width = width;
-
-                    ((FrameworkElement)g.Children[1]).Margin = new Thickness(width + 20, 0, 0, 0);
-                }
-            }
-        }
 
         private void BtnOk_Click(object sender, RoutedEventArgs e)
         {

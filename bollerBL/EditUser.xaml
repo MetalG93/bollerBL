@@ -5,14 +5,14 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:bollerBL"
         mc:Ignorable="d"
-        Title="Felhasználó módosítása" Height="150" Width="300">
+        Title="Felhasználó módosítása" Height="210" Width="360" WindowStartupLocation="CenterScreen">
     <Grid>
         <Grid.Resources>
             <Style TargetType="Label">
                 <Setter Property="HorizontalAlignment" Value="Left"></Setter>
                 <Setter Property="VerticalAlignment" Value="Top"></Setter>
                 <Setter Property="HorizontalContentAlignment" Value="Right"></Setter>
-                <Setter Property="Width" Value="50"></Setter>
+                <Setter Property="Width" Value="120"></Setter>
                 <Setter Property="Height" Value="25"></Setter>
             </Style>
 
@@ -32,11 +32,17 @@
         </Grid.Resources>
 
         <Label Content="Név" Margin="10,10,0,0"></Label>
-        <ComboBox Name="txtName" Margin="70,10,0,0" SelectionChanged="TxtName_SelectionChanged"></ComboBox>
+        <ComboBox Name="txtName" Margin="140,10,0,0" ></ComboBox>
 
-        <Label Content="Jelszó" Margin="10,45,0,0"></Label>
-        <PasswordBox Name="txtPass" Margin="70,45,0,0"></PasswordBox>
+        <Label Content="Régi jelszó" Margin="10,45,0,0"></Label>
+        <PasswordBox Name="txtPassOld" Margin="140,45,0,0"></PasswordBox>
 
-        <Button Name="btnOk" Content="Mentés" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,80,0,0" Width="260" Click="BtnOk_Click"></Button>
+        <Label Content="Új jelszó" Margin="10,80,0,0"></Label>
+        <PasswordBox Name="txtPassNew" Margin="140,80,0,0"></PasswordBox>
+
+        <Label Content="Új jelszó mégegyszer" Margin="10,115,0,0"></Label>
+        <PasswordBox Name="txtPassNewAgain" Margin="140,115,0,0"></PasswordBox>
+
+        <Button Name="btnOk" Content="Mentés" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,150,0,0" Width="330" Click="BtnOk_Click"></Button>
     </Grid>
 </Window>

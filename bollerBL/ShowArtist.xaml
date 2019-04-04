@@ -6,9 +6,9 @@
         xmlns:local="clr-namespace:bollerBL"
         xmlns:xceed="http://schemas.xceed.com/wpf/xaml/toolkit"
         mc:Ignorable="d"
-        Title="ShowTeams" Height="450" Width="856.723" Name="showTeams" SizeChanged="ShowArtist_SizeChanged" Closing="ShowArtist_Closing">
+        Title="ShowTeams" Height="450" Width="856.723" Name="showTeams" SizeChanged="ShowArtist_SizeChanged" Closing="ShowArtist_Closing" WindowStartupLocation="CenterScreen" ResizeMode="CanResize">
     <Grid>
-        <DataGrid Name="datagrid" HorizontalAlignment="Stretch" AutoGenerateColumns="False" ItemsSource="{Binding Source={x:Static local:Misc.artists}}" ColumnWidth="*" FontWeight="Bold">
+        <DataGrid Name="datagrid" HorizontalAlignment="Stretch" AutoGenerateColumns="False" ItemsSource="{Binding Source={x:Static local:Misc.artists}}" ColumnWidth="*" FontWeight="Bold" Background="#3ba15e">
             <DataGrid.ColumnHeaderStyle>
                 <Style TargetType="DataGridColumnHeader">
                     <Setter Property="ContentTemplate">

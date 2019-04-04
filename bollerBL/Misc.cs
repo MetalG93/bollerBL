@@ -9,12 +9,13 @@ using fastJSON;
 using System.Collections.ObjectModel;
 using iTextSharp.text;
 using iTextSharp.text.pdf;
-
+using System.Security.Cryptography;
 
 namespace bollerBL
 {
     static class Misc
     {
+        public static bool firstStart = true;
         public static List<User> users = new List<User>();
         public static List<Artist> artists = new List<Artist>();
         public static List<Guest> guests = new List<Guest>();
@@ -42,7 +43,7 @@ namespace bollerBL
 
         public static void saveUsers()
         {
-            StreamWriter sw = new StreamWriter("artist.csv", false);
+            StreamWriter sw = new StreamWriter("users.csv", false);
 
             foreach (User u in users)
             {
@@ -225,7 +226,7 @@ namespace bollerBL
 
                 doc.Close();
                 writer.Close();
-                MessageBox.Show(string.Format("PDF készítése sikeres!{0}Elmenteve a {1} mappába",Environment.NewLine, Misc.PDFpath));
+                MessageBox.Show(string.Format("PDF készítése sikeres!{0}Elmenteve a {1} mappába", Environment.NewLine, Misc.PDFpath));
                 //System.Diagnostics.Process.Start(filename);
             }
             catch (FieldAccessException)
@@ -238,7 +239,7 @@ namespace bollerBL
         private static float calculatePadding(string text)
         {
 
-            int multiplier = 1, calc=0;
+            int multiplier = 1, calc = 0;
 
             while (calc < text.Length)
             {
@@ -246,7 +247,7 @@ namespace bollerBL
                 calc += 8;
             }
 
-            return ((float)(multiplier+1)/multiplier);
+            return ((float)(multiplier + 1) / multiplier);
         }
 
         private static float calculateFontSize(string text)
@@ -260,6 +261,21 @@ namespace bollerBL
             }
 
             return size;
+        }
+        public static string CalculateMD5(string input)
+        {
+            // step 1, calculate MD5 hash from input
+            MD5 md5 = System.Security.Cryptography.MD5.Create();
+            byte[] inputBytes = System.Text.Encoding.ASCII.GetBytes(input);
+            byte[] hash = md5.ComputeHash(inputBytes);
+
+            // step 2, convert byte array to hex string
+            StringBuilder sb = new StringBuilder();
+            for (int i = 0; i < hash.Length; i++)
+            {
+                sb.Append(hash[i].ToString("X2"));
+            }
+            return sb.ToString();
         }
     }
 }

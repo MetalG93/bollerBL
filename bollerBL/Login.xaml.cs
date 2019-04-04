@@ -21,14 +21,16 @@ namespace bollerBL
     {
         public Login()
         {
-            SplashScreen sc = new SplashScreen("ikon.png");
-            sc.Show(false);
+            if (Misc.firstStart)
+            {
+                SplashScreen sc = new SplashScreen("ikon.png");
+                sc.Show(false);
+                sc.Close(new TimeSpan(0, 0, 1));
+            }
 
             Misc.loadUsers();
 
-            sc.Close(new TimeSpan(0, 0, 1));
             InitializeComponent();
-            placeUI();
             cmbUser.ItemsSource = Misc.users;
             cmbUser.DisplayMemberPath = "Name";
 
@@ -39,37 +41,6 @@ namespace bollerBL
             login();
         }
 
-        private void placeUI()
-        {
-            double width = this.Width / 25;
-            double height = this.Height / 10;
-
-            lblUser.Margin = new Thickness(width, 2 * height, 0, 0);
-            lblUser.Width = 10 * width;
-            lblUser.Height = height;
-
-            cmbUser.Margin = new Thickness(12 * width, 2 * height, 0, 0);
-            cmbUser.Width = 10 * width;
-            cmbUser.Height = height;
-
-            lblPass.Margin = new Thickness(width, 4 * height, 0, 0);
-            lblPass.Width = 10 * width;
-            lblPass.Height = height;
-
-            pswPass.Margin = new Thickness(12 * width, 4 * height, 0, 0);
-            pswPass.Width = 10 * width;
-            pswPass.Height = height;
-
-            btnLogin.Margin = new Thickness(6 * width, 6 * height, 0, 0);
-            btnLogin.Width = 11 * width;
-            btnLogin.Height = height;
-        }
-
-        private void Window_SizeChanged(object sender, SizeChangedEventArgs e)
-        {
-            placeUI();
-        }
-
         private void PswPass_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.Key == Key.Enter)
@@ -78,11 +49,12 @@ namespace bollerBL
 
         private void login()
         {
-            if (pswPass.Password == Misc.users[cmbUser.SelectedIndex].PassWord)
+            if (Misc.CalculateMD5(pswPass.Password) == Misc.users[cmbUser.SelectedIndex].PassWord)
             {
                 Misc.logging("Bejelentkezés: " + Misc.users[cmbUser.SelectedIndex].Name);
                 Choose ch = new Choose();
                 ch.Show();
+                Misc.firstStart = false;
                 this.Close();
             }
             else

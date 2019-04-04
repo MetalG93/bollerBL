@@ -5,24 +5,23 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:bollerBL"
         mc:Ignorable="d"
-        Title="Bejelentkezés" Height="250" Width="400"  SizeChanged="Window_SizeChanged">
+        Title="Bejelentkezés" Height="170" Width="250" WindowStartupLocation="CenterScreen" >
     <Grid>
         <Grid.Resources>
             <Style TargetType="Label">
                 <Setter Property="HorizontalAlignment" Value="Left"></Setter>
                 <Setter Property="VerticalAlignment" Value="Top"></Setter>
                 <Setter Property="Width" Value="100"></Setter>
-                <Setter Property="HorizontalContentAlignment" Value="Center"></Setter>
+                <Setter Property="Height" Value="25"></Setter>
+                <Setter Property="HorizontalContentAlignment" Value="Right"></Setter>
             </Style>
         </Grid.Resources>
 
         <Label Name="lblUser" Margin="10,10,0,0" Content="Felhasználónév:"></Label>
-        <ComboBox Name="cmbUser" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="120,10,0,0" Width="100">
-            
-        </ComboBox>
+        <ComboBox Name="cmbUser" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="120,10,0,0" Width="100" Height="25"></ComboBox>
 
         <Label Name="lblPass" Margin="10,50,0,0" Content="Jelszó:"></Label>
-        <PasswordBox Name="pswPass" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="120,50,0,0" Width="100" KeyDown="PswPass_KeyDown"></PasswordBox>
+        <PasswordBox Name="pswPass" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="120,50,0,0" Width="100" Height="25" KeyDown="PswPass_KeyDown"></PasswordBox>
 
         <Button Name="btnLogin" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="75,90,0,0" Width="100" Height="25" Content="Bejelentkezés" Click="btnLogin_Click"></Button>
 

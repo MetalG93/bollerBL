@@ -134,7 +134,7 @@ namespace bollerBL
                     if (gb.Header.ToString() == "Felnőtt jegyek")
                         adult += (decimal.Parse(((TextBox)((Grid)s.Children[1]).Children[3]).Text) - decimal.Parse(((TextBox)((Grid)s.Children[1]).Children[1]).Text)) - (decimal.Parse(((TextBox)((Grid)s.Children[3]).Children[3]).Text) - decimal.Parse(((TextBox)((Grid)s.Children[3]).Children[1]).Text));
                     else
-                        children += (decimal.Parse(((TextBox)((Grid)s.Children[3]).Children[3]).Text) - decimal.Parse(((TextBox)((Grid)s.Children[3]).Children[1]).Text)) - (decimal.Parse(((TextBox)((Grid)s.Children[1]).Children[3]).Text) - decimal.Parse(((TextBox)((Grid)s.Children[1]).Children[1]).Text));
+                        children += (decimal.Parse(((TextBox)((Grid)s.Children[1]).Children[3]).Text) - decimal.Parse(((TextBox)((Grid)s.Children[1]).Children[1]).Text)) - (decimal.Parse(((TextBox)((Grid)s.Children[3]).Children[3]).Text) - decimal.Parse(((TextBox)((Grid)s.Children[3]).Children[1]).Text));
                 }
             }
 
@@ -198,29 +198,51 @@ namespace bollerBL
             emptyTable.AddCell(emptyCell);
             doc.Add(emptyTable);
 
-            PdfPTable preTicekt = new PdfPTable(4);
-            preTicekt.AddCell(new PdfPCell(new Phrase("Kóstolójegy: ")));
+            PdfPTable preTicekt = new PdfPTable(6);
+            preTicekt.PaddingTop = PageSize.A4.Height / 3;
+            /*preTicekt.AddCell(new PdfPCell(new Phrase("Kóstolójegy: ")));
             preTicekt.AddCell(new PdfPCell(new Phrase(taste)));
             preTicekt.AddCell(new PdfPCell(new Phrase("Tombola: ")));
-            preTicekt.AddCell(new PdfPCell(new Phrase(raffle)));
+            preTicekt.AddCell(new PdfPCell(new Phrase(raffle)));*/
+
+            PdfPCell typeCell = new PdfPCell();
+            typeCell.Border = PdfPCell.NO_BORDER;
+            typeCell.Colspan = 5;
+
+            PdfPCell numCell = new PdfPCell();
+            numCell.Border = PdfPCell.NO_BORDER;
+
+            typeCell.Phrase = new Phrase("Kóstolójegy");
+            preTicekt.AddCell(typeCell);
+
+            numCell.Phrase = new Phrase(taste.ToString());
+            preTicekt.AddCell(numCell);
+
+            typeCell.Phrase = new Phrase("Tombola");
+            preTicekt.AddCell(typeCell);
+
+            numCell.Phrase = new Phrase(raffle.ToString());
+            preTicekt.AddCell(numCell);
 
             doc.Add(preTicekt);
 
             PdfPTable ticketTable = new PdfPTable(6);
+            ticketTable.PaddingTop = PageSize.A4.Height * 2 / 3;
 
             PdfPCell ticketType = new PdfPCell(new Phrase("Felnőtt jegyek"));
             ticketType.Border = PdfPCell.NO_BORDER;
-            ticketType.Colspan = 6;
-
+            ticketType.Colspan = 5;
             ticketTable.AddCell(ticketType);
 
-            ticketTable.AddCell(new PdfPCell(new Phrase(adult.ToString())));
+            PdfPCell ticketNum = new PdfPCell(new Phrase(adult.ToString()));
+            ticketNum.Border = PdfPCell.NO_BORDER;            
+            ticketTable.AddCell(ticketNum);
 
             ticketType.Phrase = new Phrase("Gyerek jegyek");
-            ticketType.Border = PdfPCell.NO_BORDER;
-            ticketType.Colspan = 6;
+            ticketTable.AddCell(ticketType);
 
-            ticketTable.AddCell(new PdfPCell(new Phrase(children.ToString())));
+            ticketNum.Phrase = new Phrase(children.ToString());
+            ticketTable.AddCell(ticketNum);
 
             doc.Add(ticketTable);
 

@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:bollerBL"
         mc:Ignorable="d"
-        Height="220" Width="250" Title="Árak móosítása">
+        Height="220" Width="250" Title="Árak móosítása" WindowStartupLocation="CenterScreen">
     <Window.Resources>
         <Style TargetType="Label">
             <Setter Property="VerticalAlignment" Value="Top"></Setter>

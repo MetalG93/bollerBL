@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:bollerBL"
         mc:Ignorable="d"
-        Title="Böllér Bajnokok Ligája" Height="300" Width="450">
+        Title="Böllér Bajnokok Ligája" Height="300" Width="450" WindowStartupLocation="CenterScreen">
     <Grid>
 
         <Grid.Resources>
@@ -41,15 +41,22 @@
                 <MenuItem Header="Új felhasználó" Click="mniNewUser_Click" ></MenuItem>
                 <MenuItem Header="Felhasználó módosítása" Click="mniEditUser_Click"></MenuItem>
             </MenuItem>
-            <MenuItem Header="Árak módosítása" Click="mniChangePrice"></MenuItem>
+            <MenuItem Header="Beállítások">
+                <MenuItem Header="Árak módosítása" Click="mniChangePrice"></MenuItem>
+                <MenuItem Header="Törlés">
+                    <MenuItem Header="Csapatok" Click="mniDeleteTeams"></MenuItem>
+                    <MenuItem Header="Fellépők" Click="mniDeleteArtists"></MenuItem>
+                    <MenuItem Header="Meghívottak" Click="mniDeleteGuests"></MenuItem>
+                </MenuItem>
+            </MenuItem>
         </Menu>
 
         <Button Content="Kapu összesítés"  Margin="10,25,0,0" Width="100" Height="25" Click="btnGateFinancial_Click"/>
-        <Button Content="PDF tároló megnyitása" Margin="120,25,0,0" Width="100" Height="25" Click="btnOpenPdfContainer"></Button>
-        <GroupBox Margin="10,60,0,0" Header="Behajtási engedély" Height="90" Width="250" >
+        <GroupBox Margin="10,60,0,0" Header="Behajtási engedély" Height="130" Width="250" >
             <Grid>
                 <TextBox Name="txtPlateNum" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,10,0,0" Width="200" Grid.Column="1" ></TextBox>
-                <Button Content="PDF készítése" HorizontalAlignment="Left" Margin="10,40,0,0" VerticalAlignment="Top" Width="200"  Click="btnCustonPlantNum_Click" />
+                <Button Content="PDF készítése" HorizontalAlignment="Left" Margin="10,40,0,0" VerticalAlignment="Top" Width="200" Height="25" Click="btnCustonPlantNum_Click" />
+                <Button Content="PDF tároló megnyitása" Margin="10,75,0,0" Width="200" Click="btnOpenPdfContainer"></Button>
             </Grid>
         </GroupBox>
     </Grid>

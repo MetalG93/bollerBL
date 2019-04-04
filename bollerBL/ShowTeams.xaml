@@ -5,9 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:bollerBL"
         mc:Ignorable="d"
-        Title="ShowTeams" Height="450" Width="856.723" Name="showTeams" Closing="ShowTeams_Closing">
+        Title="ShowTeams" Height="450" Width="856.723" Name="showTeams" Closing="ShowTeams_Closing" WindowStartupLocation="CenterScreen" ResizeMode="CanResize">
     <Grid>
-        <DataGrid Name="datagrid" HorizontalAlignment="Stretch" AutoGenerateColumns="False" ItemsSource="{Binding Source={x:Static local:Misc.teams}}" ColumnWidth="*" FontWeight="Bold">
+        <DataGrid Name="datagrid" HorizontalAlignment="Stretch" AutoGenerateColumns="False" ItemsSource="{Binding Source={x:Static local:Misc.teams}}" ColumnWidth="*" FontWeight="Bold" Background="#3ba15e">
             <DataGrid.ColumnHeaderStyle>
                 <Style TargetType="DataGridColumnHeader">
                     <Setter Property="ContentTemplate">

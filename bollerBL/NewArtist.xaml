@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:bollerBL"
         mc:Ignorable="d"
-        Title="Új fellépő" Height="290" Width="350">
+        Title="Új fellépő" Height="290" Width="500" WindowStartupLocation="CenterScreen">
     <Grid>
         <Grid.Resources>
 
@@ -19,7 +19,7 @@
 
             <Style TargetType="TextBox">
                 <Setter Property="HorizontalAlignment" Value="Left"></Setter>
-                <Setter Property="Width" Value="150"></Setter>
+                <Setter Property="Width" Value="300"></Setter>
                 <Setter Property="Height" Value="25"></Setter>
                 <Setter Property="Margin" Value="170,0,0,0"></Setter>
             </Style>
@@ -66,7 +66,7 @@
             </Grid>
             
             <Grid Height="50">
-                <Button Content="Mentés" Width="330" Height="30" Click="Button_Click"></Button>
+                <Button Content="Mentés" Width="400" Height="30" Click="Button_Click"></Button>
             </Grid>
             
         </StackPanel>

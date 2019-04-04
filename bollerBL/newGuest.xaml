@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:bollerBL"
         mc:Ignorable="d"
-        Title="Új vendég rögzítése" Height="210" Width="350">
+        Title="Új vendég rögzítése" Height="210" Width="350" WindowStartupLocation="CenterScreen">
     <Grid>
         <Grid.Resources>
 
@@ -48,7 +48,7 @@
             </Grid>
 
             <Grid Height="50">
-                <Button Content="Mentés" Height="30" Width="330" Click="Button_Click"></Button>
+                <Button Content="Mentés" Height="30" Width="300" Click="Button_Click"></Button>
             </Grid>
         </StackPanel>
     </Grid>

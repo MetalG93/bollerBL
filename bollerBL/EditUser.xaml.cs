@@ -28,16 +28,14 @@ namespace bollerBL
 
         private void BtnOk_Click(object sender, RoutedEventArgs e)
         {
-            if (txtPass.Password.Length > 0)
+            if (txtPassOld.Password.Length > 0)
             {
-                Misc.users[txtName.SelectedIndex].PassWord = txtPass.Password;
-                Misc.saveUsers();
+                if (txtPassNew.Password == txtPassNewAgain.Password)
+                {
+                    Misc.users[txtName.SelectedIndex].PassWord = Misc.CalculateMD5(txtPassNew.Password);
+                    Misc.saveUsers();
+                }
             }
-        }
-
-        private void TxtName_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            txtPass.Password = Misc.users[txtName.SelectedIndex].PassWord;
         }
     }
 }

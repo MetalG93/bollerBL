@@ -26,7 +26,7 @@ namespace bollerBL
 
         private void BtnOk_Click(object sender, RoutedEventArgs e)
         {
-            Misc.users.Add(new User(txtName.Text, txtPass.Password));
+            Misc.users.Add(new User(txtName.Text, Misc.CalculateMD5(txtPass.Password)));
             Misc.saveUsers();
         }
     }

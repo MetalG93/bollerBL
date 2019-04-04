@@ -173,5 +173,32 @@ namespace bollerBL
             EditUser eu = new EditUser();
             eu.Show();
         }
+
+        private void mniDeleteTeams(object sender, RoutedEventArgs e)
+        {
+            if (MessageBox.Show("Biztos törölni akarod a csapatokat? A törlés nem visszavonható!", "Csapatok törlése", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
+            {
+                Misc.teams.Clear();
+                Misc.saveTeams();
+            }
+        }
+
+        private void mniDeleteArtists(object sender, RoutedEventArgs e)
+        {
+            if (MessageBox.Show("Biztos törölni akarod a fellépőket? A törlés nem visszavonható!", "Fellépők törlése", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
+            {
+                Misc.artists.Clear();
+                Misc.saveArtist();
+            }
+        }
+
+        private void mniDeleteGuests(object sender, RoutedEventArgs e)
+        {
+            if (MessageBox.Show("Biztos törölni akarod a vendégeket? A törlés nem visszavonható!", "Vendégek törlése", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
+            {
+                Misc.guests.Clear();
+                Misc.saveGuests();
+            }
+        }
     }
 }
