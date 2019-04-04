@@ -47,5 +47,10 @@ namespace bollerBL
         {
             Misc.teams.Remove((Team)datagrid.SelectedItem);
         }
+
+        private void btnTeamDelete(object sender, RoutedEventArgs e)
+        {
+            Misc.teams.Remove((Team)((Button)e.OriginalSource).DataContext);
+        }
     }
 }

@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:bollerBL"
         mc:Ignorable="d"
-        Title="ShowTeams" Height="450" Width="856.723" Name="showTeams" Closing="ShowTeams_Closing" WindowStartupLocation="CenterScreen" ResizeMode="CanResize">
+        Title="Csapatok szerkesztése" Height="450" Width="856" Name="showTeams" Closing="ShowTeams_Closing" WindowStartupLocation="CenterScreen" WindowState="Maximized" ResizeMode="CanResize" >
     <Grid>
         <DataGrid Name="datagrid" HorizontalAlignment="Stretch" AutoGenerateColumns="False" ItemsSource="{Binding Source={x:Static local:Misc.teams}}" ColumnWidth="*" FontWeight="Bold" Background="#3ba15e">
             <DataGrid.ColumnHeaderStyle>
@@ -13,10 +13,11 @@
                     <Setter Property="ContentTemplate">
                         <Setter.Value>
                             <DataTemplate>
-                                <TextBlock TextWrapping="Wrap" Text="{Binding}"></TextBlock>
+                                <TextBlock TextWrapping="Wrap" Text="{Binding}" ></TextBlock>
                             </DataTemplate>
                         </Setter.Value>
                     </Setter>
+                    <Setter Property="HorizontalContentAlignment" Value="Center"></Setter>
                 </Style>
             </DataGrid.ColumnHeaderStyle>
 
@@ -50,6 +51,15 @@
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
+
+                <DataGridTemplateColumn Header="Csapat törlése">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Content="Törlés" Click="btnTeamDelete"></Button>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                
             </DataGrid.Columns>
         </DataGrid>
     </Grid>

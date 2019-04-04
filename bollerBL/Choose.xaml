@@ -5,17 +5,15 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:bollerBL"
         mc:Ignorable="d"
-        Title="Böllér Bajnokok Ligája" Height="300" Width="450" WindowStartupLocation="CenterScreen">
+        Title="Böllér Bajnokok Ligája" Height="250" Width="450" WindowStartupLocation="CenterScreen">
     <Grid>
 
         <Grid.Resources>
             <Style TargetType="GroupBox">
-                <Setter Property="HorizontalAlignment" Value="Left"></Setter>
                 <Setter Property="VerticalAlignment" Value="Top"></Setter>
             </Style>
 
             <Style TargetType="Button">
-                <Setter Property="HorizontalAlignment" Value="Left"></Setter>
                 <Setter Property="VerticalAlignment" Value="Top"></Setter>
             </Style>
         </Grid.Resources>
@@ -31,7 +29,7 @@
             <MenuItem Header="Fellépők">
                 <MenuItem Header="Új fellépő" Click="mniNewArtist"></MenuItem>
                 <MenuItem Header="Fellépők megtekintése/módosítása" Click="mniEditArtist"></MenuItem>
-                <MenuItem Header="Idővonal megtekintése" Click="mniArtistTimeLine"></MenuItem>
+                <MenuItem Header="Idővonal megtekintése" Click="mniArtistTimeLine" Visibility="Collapsed"></MenuItem>
             </MenuItem>
             <MenuItem Header="Vendégek">
                 <MenuItem Header="Új vendég" Click="mniNewGuest"></MenuItem>
@@ -43,7 +41,8 @@
             </MenuItem>
             <MenuItem Header="Beállítások">
                 <MenuItem Header="Árak módosítása" Click="mniChangePrice"></MenuItem>
-                <MenuItem Header="Törlés">
+                <MenuItem Header="PDF tár" Click="mniPdfFolder"></MenuItem>
+                <MenuItem Header="Összes törlése">
                     <MenuItem Header="Csapatok" Click="mniDeleteTeams"></MenuItem>
                     <MenuItem Header="Fellépők" Click="mniDeleteArtists"></MenuItem>
                     <MenuItem Header="Meghívottak" Click="mniDeleteGuests"></MenuItem>
@@ -51,12 +50,12 @@
             </MenuItem>
         </Menu>
 
-        <Button Content="Kapu összesítés"  Margin="10,25,0,0" Width="100" Height="25" Click="btnGateFinancial_Click"/>
-        <GroupBox Margin="10,60,0,0" Header="Behajtási engedély" Height="130" Width="250" >
+        <Button Content="Kapu összesítés"  Margin="0,35,0,0" Width="400" Height="25" Click="btnGateFinancial_Click"/>
+        <GroupBox Margin="0,80,0,0" Header="Behajtási engedély" Height="130"  Width="420" >
             <Grid>
-                <TextBox Name="txtPlateNum" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,10,0,0" Width="200" Grid.Column="1" ></TextBox>
-                <Button Content="PDF készítése" HorizontalAlignment="Left" Margin="10,40,0,0" VerticalAlignment="Top" Width="200" Height="25" Click="btnCustonPlantNum_Click" />
-                <Button Content="PDF tároló megnyitása" Margin="10,75,0,0" Width="200" Click="btnOpenPdfContainer"></Button>
+                <TextBox Name="txtPlateNum" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,10,0,0" Width="390" Grid.Column="1" ></TextBox>
+                <Button Content="PDF készítése"  Margin="0,40,0,0" VerticalAlignment="Top" Width="390" Height="25" Click="btnCustonPlantNum_Click" />
+                <Button Content="PDF tároló megnyitása" Margin="0,75,0,0" Width="390" Click="btnOpenPdfContainer"></Button>
             </Grid>
         </GroupBox>
     </Grid>

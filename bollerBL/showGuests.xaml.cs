@@ -28,5 +28,10 @@ namespace bollerBL
         {
             Misc.saveGuests();
         }
+
+        private void btnGuestDelete(object sender, RoutedEventArgs e)
+        {
+            Misc.guests.Remove((Guest)((Button)e.OriginalSource).DataContext);
+        }
     }
 }

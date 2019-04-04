@@ -40,5 +40,10 @@ namespace bollerBL
         {
             
         }
+
+        private void btnArtistDelete(object sender, RoutedEventArgs e)
+        {
+            Misc.artists.Remove((Artist)((Button)e.OriginalSource).DataContext);
+        }
     }
 }

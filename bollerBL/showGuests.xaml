@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:bollerBL"
         mc:Ignorable="d"
-        Title="Vendégek" Height="450" Width="800" Closing="Window_Closing" WindowStartupLocation="CenterScreen" ResizeMode="CanResize">
+        Title="Vendégek szerkesztése" Height="450" Width="800" Closing="Window_Closing" WindowStartupLocation="CenterScreen" WindowState="Maximized" ResizeMode="CanResize">
     <Grid>
         <DataGrid Name="datagrid" HorizontalAlignment="Stretch" AutoGenerateColumns="False" ItemsSource="{Binding Source={x:Static local:Misc.guests}}" ColumnWidth="*" FontWeight="Bold" Background="#3ba15e">
             <DataGrid.ColumnHeaderStyle>
@@ -17,6 +17,7 @@
                             </DataTemplate>
                         </Setter.Value>
                     </Setter>
+                    <Setter Property="HorizontalContentAlignment" Value="Center"></Setter>
                 </Style>
             </DataGrid.ColumnHeaderStyle>
 
@@ -27,6 +28,13 @@
                 <DataGridTextColumn Header="Vendég telefonszáma" Binding="{Binding Path=Phone, Mode=TwoWay}"></DataGridTextColumn>
                 <DataGridTextColumn Header="Vendég e-mail címe" Binding="{Binding Path=Email, Mode=TwoWay}"></DataGridTextColumn>
                 <DataGridCheckBoxColumn Header="Jön" Binding="{Binding Path=Come, Mode=TwoWay}"></DataGridCheckBoxColumn>
+                <DataGridTemplateColumn Header="Vendég törlése">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Content="Törlés" Click="btnGuestDelete"></Button>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
             </DataGrid.Columns>
         </DataGrid>
     </Grid>

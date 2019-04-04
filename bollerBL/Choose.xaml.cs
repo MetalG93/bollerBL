@@ -22,6 +22,7 @@ namespace bollerBL
         public Choose()
         {
             InitializeComponent();
+            Misc.loadPrices();
         }
 
         private void mniLogoff_Click(object sender, RoutedEventArgs e)
@@ -198,6 +199,16 @@ namespace bollerBL
             {
                 Misc.guests.Clear();
                 Misc.saveGuests();
+            }
+        }
+
+        private void mniPdfFolder(object sender, RoutedEventArgs e)
+        {
+            using (var dialog = new System.Windows.Forms.FolderBrowserDialog())
+            {
+                System.Windows.Forms.DialogResult result = dialog.ShowDialog();
+                Misc.PDFpath = dialog.SelectedPath;
+                Misc.savePrices();
             }
         }
     }

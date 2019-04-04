@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:bollerBL"
         mc:Ignorable="d"
-        Title="Bejelentkezés" Height="170" Width="250" WindowStartupLocation="CenterScreen" >
+        Title="Bejelentkezés" Height="170" Width="350" WindowStartupLocation="CenterScreen" >
     <Grid>
         <Grid.Resources>
             <Style TargetType="Label">
@@ -18,12 +18,12 @@
         </Grid.Resources>
 
         <Label Name="lblUser" Margin="10,10,0,0" Content="Felhasználónév:"></Label>
-        <ComboBox Name="cmbUser" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="120,10,0,0" Width="100" Height="25"></ComboBox>
+        <ComboBox Name="cmbUser" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="120,10,0,0" Width="200" Height="25"></ComboBox>
 
         <Label Name="lblPass" Margin="10,50,0,0" Content="Jelszó:"></Label>
-        <PasswordBox Name="pswPass" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="120,50,0,0" Width="100" Height="25" KeyDown="PswPass_KeyDown"></PasswordBox>
+        <PasswordBox Name="pswPass" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="120,50,0,0" Width="200" Height="25" KeyDown="PswPass_KeyDown"></PasswordBox>
 
-        <Button Name="btnLogin" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="75,90,0,0" Width="100" Height="25" Content="Bejelentkezés" Click="btnLogin_Click"></Button>
+        <Button Name="btnLogin" VerticalAlignment="Top" Margin="0,90,0,0" Width="300" Height="25" Content="Bejelentkezés" Click="btnLogin_Click"></Button>
 
     </Grid>
 </Window>

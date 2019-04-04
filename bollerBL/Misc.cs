@@ -1,11 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.IO;
-using fastJSON;
 using System.Collections.ObjectModel;
 using iTextSharp.text;
 using iTextSharp.text.pdf;
@@ -17,8 +14,8 @@ namespace bollerBL
     {
         public static bool firstStart = true;
         public static List<User> users = new List<User>();
-        public static List<Artist> artists = new List<Artist>();
-        public static List<Guest> guests = new List<Guest>();
+        public static ObservableCollection<Artist> artists = new ObservableCollection<Artist>();
+        public static ObservableCollection<Guest> guests = new ObservableCollection<Guest>();
         public static ObservableCollection<Team> teams = new ObservableCollection<Team>();
         public static string PDFpath = @"D:\";
 
@@ -69,7 +66,7 @@ namespace bollerBL
 
         public static void saveArtist()
         {
-            StreamWriter sw = new StreamWriter("artist.csv", false);
+            StreamWriter sw = new StreamWriter("artists.csv", false);
 
             foreach (Artist a in artists)
             {
@@ -114,12 +111,14 @@ namespace bollerBL
 
             string[] datas = sr.ReadLine().Split(';');
 
-            sr.Close();
-
             adultPrice = int.Parse(datas[0]);
             childrenPrice = int.Parse(datas[1]);
             taseTicketPrice = int.Parse(datas[2]);
             rafflePrice = int.Parse(datas[3]);
+
+            PDFpath = sr.ReadLine();
+
+            sr.Close();
         }
 
         public static void savePrices()
@@ -127,6 +126,7 @@ namespace bollerBL
             StreamWriter sr = new StreamWriter("prices.csv", false);
 
             sr.WriteLine(string.Format("{0};{1};{2};{3}", adultPrice, childrenPrice, taseTicketPrice, rafflePrice));
+            sr.WriteLine(PDFpath);
 
             sr.Close();
         }

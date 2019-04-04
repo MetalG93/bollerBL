@@ -28,7 +28,6 @@ namespace bollerBL
         {
             InitializeComponent();
             loadGates();
-            Misc.loadPrices();
             cbxGatge.ItemsSource = gates;
             cbxShift.ItemsSource = shifts;
         }
