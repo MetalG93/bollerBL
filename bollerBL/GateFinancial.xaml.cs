@@ -61,12 +61,16 @@ namespace bollerBL
 
                 Label handed = new Label();
                 handed.Content = "Odaadott";
+                handed.Height = 35;
+                handed.VerticalContentAlignment = VerticalAlignment.Bottom;
 
                 Grid handedGrid = new Grid();
                 createBoxes(handedGrid);
 
                 Label broughtBack = new Label();
-                handed.Content = "Visszahozott";
+                broughtBack.Content = "Visszahozott";
+                broughtBack.Height = 35;
+                broughtBack.VerticalContentAlignment = VerticalAlignment.Bottom;
 
                 Grid broughtBackGrid = new Grid();
                 createBoxes(broughtBackGrid);
@@ -123,35 +127,52 @@ namespace bollerBL
             decimal adult = 0;
             int taste = int.Parse(txtTastingTicket.Text);
             int raffle = int.Parse(txtRaffle.Text);
+            decimal allPrice = 0;
 
             if (ticketBoxes.Children.Count > 0)
             {
                 foreach (GroupBox gb in ticketBoxes.Children)
                 {
                     StackPanel s = (StackPanel)gb.Content;
-
-                    if (gb.Header.ToString() == "Felnőtt jegyek")
-                        adult += (decimal.Parse(((TextBox)((Grid)s.Children[1]).Children[3]).Text) - decimal.Parse(((TextBox)((Grid)s.Children[1]).Children[1]).Text)) - (decimal.Parse(((TextBox)((Grid)s.Children[3]).Children[3]).Text) - decimal.Parse(((TextBox)((Grid)s.Children[3]).Children[1]).Text));
-                    else
-                        children += (decimal.Parse(((TextBox)((Grid)s.Children[1]).Children[3]).Text) - decimal.Parse(((TextBox)((Grid)s.Children[1]).Children[1]).Text)) - (decimal.Parse(((TextBox)((Grid)s.Children[3]).Children[3]).Text) - decimal.Parse(((TextBox)((Grid)s.Children[3]).Children[1]).Text));
+                    try
+                    {
+                        if (gb.Header.ToString() == "Felnőtt jegyek")
+                            adult += (decimal.Parse(((TextBox)((Grid)s.Children[1]).Children[3]).Text) - decimal.Parse(((TextBox)((Grid)s.Children[1]).Children[1]).Text)) - (decimal.Parse(((TextBox)((Grid)s.Children[3]).Children[3]).Text) - decimal.Parse(((TextBox)((Grid)s.Children[3]).Children[1]).Text));
+                        else
+                            children += (decimal.Parse(((TextBox)((Grid)s.Children[1]).Children[3]).Text) - decimal.Parse(((TextBox)((Grid)s.Children[1]).Children[1]).Text)) - (decimal.Parse(((TextBox)((Grid)s.Children[3]).Children[3]).Text) - decimal.Parse(((TextBox)((Grid)s.Children[3]).Children[1]).Text));
+                    }
+                    catch (FormatException)
+                    { MessageBox.Show("Írd be a karszalagok számait!"); }
                 }
             }
 
             int money = 0;
 
-            for (int i = 1; i < sMoney.Children.Count; i++)
+            for (int i = 1; i < sMoney.Children.Count - 1; i++)
             {
                 money += int.Parse(((TextBox)((Grid)sMoney.Children[i]).Children[1]).Text) * int.Parse(((Label)((Grid)sMoney.Children[i]).Children[0]).Content.ToString());
             }
 
+            allPrice = children * Misc.childrenPrice + adult * Misc.adultPrice + taste * Misc.taseTicketPrice + raffle * Misc.rafflePrice;
+
+            if (allPrice <= money)
+            {
+                lblBalance.Content = string.Format("+{0} Ft", money - allPrice);
+                lblBalance.Foreground = Brushes.Green;
+            }
+            else
+            {
+                lblBalance.Content = string.Format("{0} Ft", money - allPrice);
+                lblBalance.Foreground = Brushes.Red;
+            }
+
             try
             {
-                if (MessageBox.Show(string.Format("Összes pénz: {0}{1}Hozott pénz: {2}{3}Készítsek nyugtát?", children * Misc.childrenPrice + adult * Misc.adultPrice + taste * Misc.taseTicketPrice + raffle * Misc.rafflePrice, Environment.NewLine, money, Environment.NewLine), string.Format("{0} {1}", gates[cbxGatge.SelectedIndex], shifts[cbxShift.SelectedIndex]), MessageBoxButton.YesNo) == MessageBoxResult.Yes)
+                if (MessageBox.Show(string.Format("Összes pénz: {0}{1}Hozott pénz: {2}{3}Készítsek nyugtát?", allPrice, Environment.NewLine, money, Environment.NewLine), string.Format("{0} {1}", gates[cbxGatge.SelectedIndex], shifts[cbxShift.SelectedIndex]), MessageBoxButton.YesNo) == MessageBoxResult.Yes)
                     createBill(int.Parse(children.ToString()), int.Parse(adult.ToString()), taste, raffle);
             }
             catch (IndexOutOfRangeException)
             { MessageBox.Show("Jelöld ki az értékesítő helyet valamint az időpontot is!"); }
-
         }
 
         private void createBill(int children, int adult, int taste, int raffle)
@@ -234,7 +255,7 @@ namespace bollerBL
             ticketTable.AddCell(ticketType);
 
             PdfPCell ticketNum = new PdfPCell(new Phrase(adult.ToString()));
-            ticketNum.Border = PdfPCell.NO_BORDER;            
+            ticketNum.Border = PdfPCell.NO_BORDER;
             ticketTable.AddCell(ticketNum);
 
             ticketType.Phrase = new Phrase("Gyerek jegyek");

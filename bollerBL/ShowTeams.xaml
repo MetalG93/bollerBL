@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="Csapatok szerkesztése" Height="450" Width="856" Name="showTeams" Closing="ShowTeams_Closing" WindowStartupLocation="CenterScreen" WindowState="Maximized" ResizeMode="CanResize" >
     <Grid>
-        <DataGrid Name="datagrid" HorizontalAlignment="Stretch" AutoGenerateColumns="False" ItemsSource="{Binding Source={x:Static local:Misc.teams}}" ColumnWidth="*" FontWeight="Bold" Background="#3ba15e">
+        <DataGrid Name="datagrid" HorizontalAlignment="Stretch" AutoGenerateColumns="False" ItemsSource="{Binding Source={x:Static local:Misc.teams}, UpdateSourceTrigger=PropertyChanged}" ColumnWidth="*" FontWeight="Bold" Background="#3ba15e">
             <DataGrid.ColumnHeaderStyle>
                 <Style TargetType="DataGridColumnHeader">
                     <Setter Property="ContentTemplate">

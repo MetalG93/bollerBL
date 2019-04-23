@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="Vendégek szerkesztése" Height="450" Width="800" Closing="Window_Closing" WindowStartupLocation="CenterScreen" WindowState="Maximized" ResizeMode="CanResize">
     <Grid>
-        <DataGrid Name="datagrid" HorizontalAlignment="Stretch" AutoGenerateColumns="False" ItemsSource="{Binding Source={x:Static local:Misc.guests}}" ColumnWidth="*" FontWeight="Bold" Background="#3ba15e">
+        <DataGrid Name="datagrid" HorizontalAlignment="Stretch" AutoGenerateColumns="False" ItemsSource="{Binding Source={x:Static local:Misc.guests}, UpdateSourceTrigger=PropertyChanged}" ColumnWidth="*" FontWeight="Bold" Background="#3ba15e">
             <DataGrid.ColumnHeaderStyle>
                 <Style TargetType="DataGridColumnHeader">
                     <Setter Property="ContentTemplate">

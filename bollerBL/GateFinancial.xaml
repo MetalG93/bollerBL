@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:bollerBL"
         mc:Ignorable="d"
-        Title="GateFinancial" Height="505" Width="850" WindowStartupLocation="CenterScreen">
+        Title="GateFinancial" Height="550" Width="850" WindowStartupLocation="CenterScreen">
     <Window.Resources>
         <Style TargetType="Label">
             <Setter Property="VerticalAlignment" Value="Top"></Setter>
@@ -55,7 +55,7 @@
                 </ComboBox>
                 <Button Name="btnNewBox" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="285,10,0,0" Width="100" Height="25" Visibility="Visible" Content="Új doboz" Click="BtnNewBox_Click"></Button>
             </Grid>
-            <ScrollViewer VerticalScrollBarVisibility="Auto" Height="360" Padding="10,0,0,0">
+            <ScrollViewer VerticalScrollBarVisibility="Auto" Height="400" Padding="10,0,0,0">
                 <StackPanel Name="ticketBoxes">
                     
                 </StackPanel>
@@ -113,6 +113,7 @@
                 <Label Content="5" Margin=" 10,10,0,0"></Label>
                 <TextBox Name="txt5" Margin="120,10,0,0" Text="0" HorizontalContentAlignment="Right"></TextBox>
             </Grid>
+            <Label Name="lblBalance" HorizontalAlignment="Right" HorizontalContentAlignment="Right" FontSize="25" Margin="0,0,10,0" Width="200"  ></Label>
         </StackPanel>
     </Grid>
 </Window>

@@ -28,14 +28,18 @@ namespace bollerBL
 
         private void BtnOk_Click(object sender, RoutedEventArgs e)
         {
-            if (txtPassOld.Password.Length > 0)
+            if (txtPassOld.Password.Length > 0 && Misc.users[txtName.SelectedIndex].PassWord == txtPassOld.Password)
             {
                 if (txtPassNew.Password == txtPassNewAgain.Password)
                 {
                     Misc.users[txtName.SelectedIndex].PassWord = Misc.CalculateMD5(txtPassNew.Password);
                     Misc.saveUsers();
                 }
+                else
+                    MessageBox.Show("Az új jelszavak nem egyeznek!");
             }
+            else
+                MessageBox.Show("A régi jelszó nem megfelelő!");
         }
     }
 }
